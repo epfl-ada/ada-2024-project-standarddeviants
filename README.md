@@ -2,9 +2,9 @@
 ## Abstract
 Drug discovery is a decade-long process which often fails before clinical application and approval. Understanding its mechanisms will help avoid this failure, and highlight the patterns that yield success. For this reason, we propose a **multi-scale analysis** of drug discovery.
 
-This analysis opens with **global trends**, such as contributions to drug discovery by countries, institutions and people, taking into account patents, publications and time. This will uncover foundational factors and topics, which guide the behaviour of research bodies. 
+This analysis opens with **global trends**, such as contributions to drug discovery by countries, institutions and people, taking into account patents, publications and time. This will uncover foundational factors and topics, which guide the behaviour of research bodies.
 This will then allow investigating a level lower, to understand the patterns within, with a particular focus on researched disease areas, their model **organisms** and outcomes.
-Finally, we explore the **molecular trends** and chemical workings of drug discovery themselves. Here, we aim to identify overrepresented chemical structures and particular binding kinetics, and how these change when targeting different protein classes. 
+Finally, we explore the **molecular trends** and chemical workings of drug discovery themselves. Here, we aim to identify overrepresented chemical structures and particular binding kinetics, and how these change when targeting different protein classes.
 Overall, by travelling from kilometers to nanometers _(Ant-man x Jules Vernes)_, we will tell the evolving story of drug discovery.
 
 ## Research Questions
@@ -41,3 +41,23 @@ Very loose proposal of roles (admin tasks still need assigning):
 - **Guillaume**: Molecular Scale analysis (Structure clustering)
 - **Wesley**: Global Scale analysis (Authors)
 
+
+
+## Conda Environment Setup
+
+```shell
+# Navigate to directory
+cd .../ada-2024-project-standarddeviants
+
+# Create a new conda environment with Python 3.11
+conda create -n ada python=3.11.9
+
+# Activate the environment
+conda activate ada
+
+# Install the required dependencies
+pip install -r requirements.txt
+
+# Set up pre-commit hooks
+pre-commit install
+```
