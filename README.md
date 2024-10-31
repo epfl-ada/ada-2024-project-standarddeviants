@@ -1,4 +1,5 @@
 # Breaking Good: How to make a successful drug
+## Abstract
 Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms will help avoid this failure and lean towards success. For this reason, we propose an analysis on the biological, chemical and institutional indicators for success in drug discovery.
 
 In particular, we will first show the different usage of model organisms to study ligands and targets. Thereafter, focusing on particular organisms, we are interested in discovering the underlying factors that may influence the outcome of drug discovery. In particular, we will investigate the biochemical and molecular features of ligands and targets, and how these change between diseases and target classes. Finally, we will link these findings to key indicators of success, such as publication citations, patents and drug status, to identify the best-in-class drugs and their traits that lead to success.
