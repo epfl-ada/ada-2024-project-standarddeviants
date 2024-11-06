@@ -3,6 +3,9 @@ import os
 
 import pandas as pd
 import requests
+from tqdm import tqdm
+
+tqdm.pandas()
 
 
 def get_extra_pub_data(doi: str) -> list | str:
@@ -53,9 +56,9 @@ def add_extra_pub_data(
     new_metadata = pd.DataFrame(df["Article DOI"].unique()).rename(
         {0: "Article DOI"}, axis=1
     )
-    new_metadata[["journal", "year", "publisher"]] = new_metadata["Article DOI"].apply(
-        lambda x: pd.Series(get_extra_pub_data(x))
-    )
+    new_metadata[["journal", "year", "publisher"]] = new_metadata[
+        "Article DOI"
+    ].progress_apply(lambda x: pd.Series(get_extra_pub_data(x)))
 
     # verify filename has .csv extension
     root, ext = os.path.splitext(filename)
@@ -72,3 +75,13 @@ def add_extra_pub_data(
     if not os.path.exists(deriv_path):
         os.mkdir(deriv_path)
     new_metadata.to_csv(save_path)
+
+
+if __name__ == "__main__":
+    usecols = ["Article DOI"]
+    df = pd.read_csv(
+        r"/Users/wesleymonteith/code/ada-2024-project-standarddeviants/data/BindingDB_All.tsv",
+        sep="\t",
+        usecols=usecols,
+    )
+    add_extra_pub_data(df)
