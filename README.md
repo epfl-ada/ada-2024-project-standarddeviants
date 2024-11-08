@@ -19,7 +19,7 @@ To guide this research, we will attempt to answer the following questions:
 - **What are the most "successful" ligands of different protein classes?**
 - What are there molecular and biochemical features?
 - Are these features shared accross multiple successful molecules?
-  
+
 
 ## Datasets
 In addition to the [BindingDB](https://www.bindingdb.org/rwd/bind/index.jsp) dataset, we will access the [DrugBank](https://en.wikipedia.org/wiki/DrugBank) dataset, to obtain information about disease areas covered by ligands. We will access information about a ligand in this dataset through its DrugBank ID, in particular its description and indications. From the retrieved text, we will use naural language processing tools to extract a list of diseases covered by each ligand.
@@ -56,4 +56,6 @@ pip install -r requirements.txt
 
 # Set up pre-commit hooks
 pre-commit install
+
+pip install -e . --use-pep517
 ```
