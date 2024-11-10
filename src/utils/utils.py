@@ -30,7 +30,7 @@ def group_categories(
                 if name_lower.endswith(v_i):
                     return k
 
-    return name_lower
+    return name
 
 
 if __name__ == "__main__":
