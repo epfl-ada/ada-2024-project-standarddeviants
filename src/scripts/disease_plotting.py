@@ -4,11 +4,20 @@ import os
 import numpy as np
 import pandas as pd
 
+from src.utils.utils import group_categories
+
 
 def load_uniprotid_diseases(
-    filepath: str | os.PathLike,
+    filepath: str | os.PathLike | None = None,
 ) -> dict[str, dict[str, list[str]]]:
     """Load the dictionnary saved by the `get_uniprot_diseases` function"""
+    if filepath is None:
+        filepath = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "..",
+            "data",
+            "UniprotID_disases.json",
+        )
     with open(filepath, "r") as f:
         diseases = json.load(f)
     return diseases
@@ -57,17 +66,13 @@ def weigh_each_comment(
 
 
 def sort_diseases(disease_name: str) -> str:
-    disease_name_lower = disease_name.lower()
-
+    """"""
     in_mapping = {
         "Neurodegeneration": [
             "parkinson",
-            "alzeihmer",
+            "alzheimer",
         ],
-        "Cancer": [
-            "leukemia",
-            "oncogene",
-        ],
+        "Cancer": ["leukemia", "oncogene", "hemangioma", "glioma"],
         "Obesity": [],
         "Neoplasia": [],
         "Hirschsprung Disease": [],
@@ -77,23 +82,20 @@ def sort_diseases(disease_name: str) -> str:
         "Diabetes": [],
         "Cornelia de Lange syndrome": [],
         "QT syndrome": [],
+        "Inflammatory skin and bowel disease": [],
+        "Osteopetrosis": [],
+        "Pregnancy loss": [],
+        "Thrombophilia": [],
+        "Periodic fever": [],
+        "Lipodystrophy": [],
+        "Schizophrenia": [],
     }
 
     endswith_mapping = {"Cancer": ["oma"]}
 
-    for k, v in in_mapping.items():
-        if k.lower() in disease_name_lower:
-            return k
-        for v_i in v:
-            if v_i in disease_name_lower:
-                return k
-
-    for k, v in endswith_mapping.items():
-        for v_i in v:
-            if disease_name_lower.endswith(v_i):
-                return k
-
-    return disease_name
+    return group_categories(
+        disease_name, in_mapping=in_mapping, endswith_mapping=endswith_mapping
+    )
 
 
 def merge_and_explode_comments(
