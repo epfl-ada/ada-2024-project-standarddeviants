@@ -1,29 +1,38 @@
 # imports
-import pandas as pd
-import numpy as np
 import os
 
-# rdkit tools
-from rdkit.Chem.Scaffolds import MurckoScaffold
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem import Draw
-from rdkit.Chem import DataStructs
-# import networkx as nx
-
-from sklearn.decomposition import PCA
-from scipy.cluster.hierarchy import linkage, dendrogram
-import umap
+import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 # plotting tools
 import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
+import umap
+from rdkit import Chem
+from rdkit.Chem import AllChem, DataStructs, Descriptors, Draw
+
+# rdkit tools
+from rdkit.Chem.Scaffolds import MurckoScaffold
+from scipy.cluster.hierarchy import dendrogram, linkage
+from sklearn.decomposition import PCA
+
+# import networkx as nx
 
 
+def get_Ki(df):
+    return (
+        df["Ki (nM)"]
+        .astype(str)
+        .str.replace(">", "")
+        .str.replace("<", "")
+        .astype(float)
+    )
 
 
-def get_fingerprint(smiles:str):#, radius:int=3, list_fmt=True)->list:
+##############  EXTRACTING MOLECULAR FEATURES FROM SMILES  ###############
+# Fingerprint
+def get_fingerprint(smiles: str):  # , radius:int=3, list_fmt=True)->list:
     """Gets the fingerprint from a SMILES string. Easy to use with pd.Series.apply() on a column with smiles data.
 
     Args:
@@ -33,36 +42,71 @@ def get_fingerprint(smiles:str):#, radius:int=3, list_fmt=True)->list:
     Returns:
         list: Fingerprint of molecule of interest, Nan of no molecule or fingerprint is found.
     """
-    list_fmt=False
-    radius=3
+    list_fmt = False
+    radius = 3
     fpgen = AllChem.GetMorganGenerator(radius=radius)
     mol = Chem.MolFromSmiles(smiles)
-    if mol != None:
+    if not mol is None:
         if list_fmt:
             return fpgen.GetFingerprint(mol).ToList()
-        else: return fpgen.GetFingerprint(mol)
-    else: return np.nan
+        else:
+            return fpgen.GetFingerprint(mol)
+    else:
+        return np.nan
+
+
+def get_Hdonors(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        return False
+    else:
+        return Descriptors.NumHDonors(mol)
+
+
+def get_Hacceptors(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        return False
+    else:
+        return Descriptors.NumHAcceptors(mol)
+
+
+def get_MW(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        return False
+    else:
+        return Descriptors.MolWt(mol)
+
+
+def get_LogP(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        return False
+    else:
+        return Descriptors.MolLogP(mol)
+
 
 # Compute the Tanimoto similarity between all pairs
-def tanimoto(fp1, fp2)->float:
+def tanimoto(fp1, fp2) -> float:
     return DataStructs.FingerprintSimilarity(fp1, fp2)
 
-def tanimoto_smiles(sm1, sm2)->float:
+
+def tanimoto_smiles(sm1, sm2) -> float:
     return DataStructs.FingerprintSimilarity(get_fingerprint(sm1), get_fingerprint(sm2))
 
-def tanimoto_matrix(df: pd.DataFrame, index:str='Ligand SMILES')->pd.DataFrame:
+
+def tanimoto_matrix(df: pd.DataFrame, index: str = "Ligand SMILES") -> pd.DataFrame:
     # fingerprints
-    fingerprints = df['Ligand SMILES'].apply(get_fingerprint).dropna()
+    fingerprints = df["Ligand SMILES"].apply(get_fingerprint).dropna()
     # Compute the Tanimoto similarity between all pairs
-    return pd.DataFrame(np.array([[tanimoto(fp1, fp2) for fp2 in fingerprints]for fp1 in fingerprints]), index=df[index], columns=df[index])
-
-
-
-
-
-
-
-
+    return pd.DataFrame(
+        np.array(
+            [[tanimoto(fp1, fp2) for fp2 in fingerprints] for fp1 in fingerprints]
+        ),
+        index=df[index],
+        columns=df[index],
+    )
 
 
 # PLOTTING FUNCTIONS
@@ -86,7 +130,6 @@ def tanimoto_plot(
     label_type: str = "Target Name",
     title: str = "Tanimoto Similarity Matrix",
 ):
-
     fig, ax = plt.subplots(1, 1)
 
     # plot labels
@@ -202,3 +245,44 @@ def show_smiles(df: pd.DataFrame, title="", n_rows=5, n_cols=5, random_sample=Fa
     fig.suptitle(title)
     plt.tight_layout()
     plt.show()
+
+
+def respects_lipinski(smiles: str, verbose=False) -> bool:
+    """
+    Checks if a molecule respects Lipinski's Rule of Five.
+
+    Args:
+        smiles (str): SMILES string of the molecule.
+
+    Returns:
+        bool: True if molecule respects Lipinski's rules, False otherwise.
+    """
+    # Convert SMILES to molecule
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        print("Invalid SMILES string.")
+        return False
+
+    # Calculate Lipinski properties
+    hbd = Descriptors.NumHDonors(mol)  # Hydrogen bond donors
+    hba = Descriptors.NumHAcceptors(mol)  # Hydrogen bond acceptors
+    mw = Descriptors.MolWt(mol)  # Molecular weight
+    logp = Descriptors.MolLogP(mol)  # Partition coefficient (LogP)
+
+    # Check Lipinski’s rules
+    respects_rules = (
+        hbd <= 5
+        and hba <= 10  # No more than 5 H-bond donors
+        and mw < 500  # No more than 10 H-bond acceptors
+        and logp <= 5  # Molecular weight less than 500 Da  # LogP not greater than 5
+    )
+
+    # Print details
+    if verbose:
+        print(f"SMILES: {smiles}")
+        print(f"Hydrogen Bond Donors (HBD): {hbd} (<= 5)")
+        print(f"Hydrogen Bond Acceptors (HBA): {hba} (<= 10)")
+        print(f"Molecular Weight (MW): {mw:.2f} (< 500 Da)")
+        print(f"LogP: {logp:.2f} (<= 5)")
+        print(f"Respects Lipinski's Rule of Five: {respects_rules}")
+    return respects_rules
