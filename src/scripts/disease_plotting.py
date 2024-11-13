@@ -72,7 +72,7 @@ def sort_diseases(disease_name: str) -> str:
             "parkinson",
             "alzheimer",
         ],
-        "Cancer": ["leukemia", "oncogene", "hemangioma", "glioma"],
+        "Cancer": ["leukemia", "oncogene", "hemangioma", "glioma", "tumor"],
         "Obesity": [],
         "Neoplasia": [],
         "Hirschsprung Disease": [],
