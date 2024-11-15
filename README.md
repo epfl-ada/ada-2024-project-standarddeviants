@@ -8,23 +8,23 @@ More particularly, we first investigate the biochemical and molecular features o
 To guide the research, we propose answering the following questions, focused on developing success metrics derived from citations, patents, prescriptions, and clinical trials to complement BindingDB.
 
 #### **Molecular Features and Drug Success**:
-Do specific biochemical features of ligands (binding kinetics, structures …) predict their success metrics?
-Do certain properties like molecular weight, hydrophobicity, or binding affinity have a strong predictive relationship with success metrics?
-Is there a difference in success between competitive and non-competitive ligands?
-Do biochemical rules of thumb (eg. Lipinski’s rule) correlate with the derived success metrics?
+- Do specific biochemical features of ligands (binding kinetics, structures …) predict their success metrics?
+- Do certain properties like molecular weight, hydrophobicity, or binding affinity have a strong predictive relationship with success metrics?
+- Is there a difference in success between competitive and non-competitive ligands?
+- Do biochemical rules of thumb (eg. Lipinski’s rule) correlate with the derived success metrics?
 
 #### **Hypothesis on Protein Class Success**:
-Do certain protein classes have a causal link to better success rates?
-In relation to disease specific outcomes, how and why are certain protein classes (e.g. GPCRs or kinases) preferentially targeted ? What class-specific molecular features might be favoured?
+- Do certain protein classes have a causal link to better success rates?
+- In relation to disease specific outcomes, how and why are certain protein classes (e.g. GPCRs or kinases) preferentially targeted ? What class-specific molecular features might be favoured?
 
 #### **Disease-Specific Outcomes**:
-Is there a causal relationship between the targeted diseases and success indicators?
+- Is there a causal relationship between the targeted diseases and success indicators?
 
 #### **Temporal Trends of Success Metrics**:
-Do the success metrics change over time? What external factors may influence these?
-Do periods of intensified research activity, in certain protein classes or diseases, lead to higher success rates?
+- Do the success metrics change over time? What external factors may influence these?
+- Do periods of intensified research activity, in certain protein classes or diseases, lead to higher success rates?
 ####  **Institutional Influence on Drug Discovery Outcomes**:
-Does the geographical location and institutional affiliation of research groups have a causal impact on the success rate of drug candidates?
+- Does the geographical location and institutional affiliation of research groups have a causal impact on the success rate of drug candidates?
 
 ## Datasets
 - [BindingDB](https://www.bindingdb.org/rwd/bind/index.jsp)
@@ -45,32 +45,32 @@ Does the geographical location and institutional affiliation of research groups 
 - [Medicaid State Drug Utilization Data](https://www.medicaid.gov/medicaid/prescription-drugs/state-drug-utilization-data/index.html)
     - Accessed via a download.
     - Used to retrieve prescription data to the dataset by merging it to the brand names in the NDC directory.
-- [Article DOI Metadata]
+- Article DOI Metadata
     - Accessed with the [crossref API](https://api.crossref.org/swagger-ui/index.html) to access publication metadata, based on a DOI (year of publication, journal, publisher, number of citations, authors, …)
 ## Methods
 ### Metrics
 A key pillar of this project is defining success metrics and understanding their limitations. Here, we outline current and planned metrics.
 #### **Current metrics**:
-Number of publications related to a ligand
-Number of citations of initial publication of a ligand
-Indicates the relevance of research on different target-ligand interactions
-Limited by external confounding factors, such as author renown and affiliation, number of targets studies per publication, disease area, etc.
-H-index when considering each target or disease class as an entity
-Compares the overall productivity and impact across different classes
-May be skewed by duration of research activity, favouring more established fields over emerging ones
-Number and phase of clinical trials associated with each ligand.
-Indicates the advancement of a drug in clinical development
-Does not account for the quality or success rate of the trial.
-Number of prescriptions of the drug.
-We only use data provided by medicaid about drug utilisation in the US, creating bias.
+- Number of publications related to a ligand
+- Number of citations of initial publication of a ligand
+    - Indicates the relevance of research on different target-ligand interactions
+    - Limited by external confounding factors, such as author renown and affiliation, number of targets studies per publication, disease area, etc.
+- H-index when considering each target or disease class as an entity
+    - Compares the overall productivity and impact across different classes
+    - May be skewed by duration of research activity, favouring more established fields over emerging ones
+- Number and phase of clinical trials associated with each ligand.
+    - Indicates the advancement of a drug in clinical development
+    - Does not account for the quality or success rate of the trial.
+- Number of prescriptions of the drug.
+    - We only use data provided by medicaid about drug utilisation in the US, creating bias.
 
 #### **Future metrics to be explored**:
-Patents
-Indicates the importance of drugs developed outside of academia
-Limited by external confounding factors, such as institution’s influence and visibility
-Binding affinities and kinetics (eg. IC50 and Ki)
-Indicates biochemical success, based on previous biological and chemical knowledge of optimal binding kinetics for particular classes of drugs
-Limited to certain classes and by current state of biochemical knowledge
+- Patents
+    - Indicates the importance of drugs developed outside of academia
+    - Limited by external confounding factors, such as institution’s influence and visibility
+- Binding affinities and kinetics (eg. IC50 and Ki)
+    - Indicates biochemical success, based on previous biological and chemical knowledge of optimal binding kinetics for particular classes of drugs
+    - Limited to certain classes and by current state of biochemical knowledge
 
 ### Analysis
 - Step 1: Data exploration
@@ -117,4 +117,44 @@ pre-commit install
 
 # Install local src package
 pip install -e . --use-pep517
+```
+
+## Repository Structure
+
+```py
+.
+├── README.md
+├── data
+│   ├── README.md # Explains how to get BindingDB_All.tsv
+│   └── BindingDB_All.tsv
+├── pip_requirements.txt
+├── results.ipynb
+├── setup.py # Setup file in order to build the local src package with pip
+├── src
+│   ├── __init__.py
+│   ├── data # Collected external data
+│   │   ├── README.md # Explains how the data was generated
+│   │   ├── UniprotID_disases.json
+│   │   ├── ZINC_references_trials.json
+│   │   ├── citations.json
+│   │   ├── metadata.csv
+│   │   └── prescription_per_drugbank_id.csv
+│   ├── model # Empty
+│   ├── scripts
+│   │   ├── __init__.py
+│   │   ├── citations.py
+│   │   ├── clinical_trials.py
+│   │   ├── data_description.py
+│   │   ├── disease_plotting.py
+│   │   ├── geography.py
+│   │   ├── metadata.py
+│   │   ├── smiles.py
+│   │   ├── targets.py
+│   │   └── uniprot.py
+│   └── utils
+│       ├── __init__.py
+│       └── utils.py
+└── tests # Various notebooks were preliminary EDA was done
+    ├── ...
+    └── ...
 ```
