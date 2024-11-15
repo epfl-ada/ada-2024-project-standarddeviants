@@ -7,15 +7,14 @@ from matplotlib import pyplot as plt
 
 
 def availability_per_group(df: pd.DataFrame, group: list) -> dict:
-       """
-    Calculate the availability of each column in a given group within a DataFrame.
-    
-    Parameters:
-        df (pd.DataFrame): The DataFrame to analyze.
-        group (list): List of column names to check availability for.
-    
+    """Caculates the percentage of available data (non-NA values) for each column in a specified group.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data to analyze.
+        group (list): a list of column names of df for which we want to analyze the availability.
+
     Returns:
-        dict: A dictionary where keys are column names and values are the fraction of non-null entries.
+        dict: contains the column names from the group as keys and the corresponding percentages of available (non-NA) data for each.
     """
     percent_available = {key: 0 for key in group}
     for col in group:
@@ -24,13 +23,12 @@ def availability_per_group(df: pd.DataFrame, group: list) -> dict:
 
 
 def plot_availability(df: pd.DataFrame, group: list, ax=None) -> None:
-    """
-    Plot a heatmap of data availability for a specific group of columns and display availability percentages.
-    
-    Parameters:
-        df (pd.DataFrame): The DataFrame to plot.
-        group (list): List of column names to include in the heatmap.
-        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
+    """Plots a heatmap showing the availability (percentage of non-NA data) for a specified group of columns of df.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest.
+        group (list):  a list of column names of df for which we want to plot the availability.
+        ax (matplotlib.axes.Axes, optional): Axes in which to draw the plot. If None, the plot is created on the current active axis. Defaults to None.
     """
     if ax:
         sns.heatmap(
@@ -62,16 +60,15 @@ def plot_distributions(
     log_scale: tuple[bool, bool] = (True, False),
     show_legend: bool = True,
 ):
-    """
-    Plot the distribution of a variable with optional quartile lines and logarithmic scaling.
-    
-    Parameters:
-        df (pd.DataFrame): The DataFrame containing the data.
-        variable (str): Column name of the variable to plot.
-        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
-        bins (int): Number of bins for the histogram. Default is 25.
-        log_scale (tuple[bool, bool]): Tuple indicating logarithmic scaling for x and y axes.
-        show_legend (bool): Whether to show a legend for quartile lines. Default is True.
+    """Plot the data distribution of a variable of interest in df.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest to be visualized.
+        variable (str): name of the column in df to plot.
+        ax (matplotlib.axes._subplots.AxesSubplot, optional): The matplotlib axis to draw the plot on. If None, the plot is created on the current active axis. Defaults to None.
+        bins (int, optional): number of bins for the histogram. Defaults to 25.
+        log_scale (tuple[bool, bool], optional): whether to use log axis for x-axis and y-axis. Defaults to (True, False).
+        show_legend (bool, optional): whether to show the legend on the plot. Defaults to True.
     """
     stats = df[variable].describe()
     sns.histplot(
@@ -108,18 +105,17 @@ def plot_distributions(
 
 def plot_overlaps(
     df: pd.DataFrame,
-    group: list[str] = None,  # if none, takes all df columns
+    group: list[str] = None,
     ax=None,
     annot: bool = True,
 ):
-    """
-    Plot a heatmap of column overlaps (percentage of non-null values shared between columns) for a group.
-    
-    Parameters:
-        df (pd.DataFrame): The DataFrame to analyze.
-        group (list[str], optional): List of column names to consider for overlaps. Uses all columns if None.
-        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
-        annot (bool): Whether to annotate the heatmap cells with percentages. Default is True.
+    """Calculates and plots the overlap of available (non-NA) data between a specified group of columns of df.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest.
+        group (list[str], optional): a list of df column names for which we want to compare data availability overlap. If None, takes all df columns. Defaults to None.
+        ax (matplotlib.axes.Axes, optional): Axes in which to draw the plot. If None, the plot is created on the current active axis. Defaults to None.
+        annot (bool, optional): whether to show the percentage value on the plot. Defaults to True.
     """
     if not group:
         group = list(df.columns)
@@ -156,16 +152,14 @@ def categorical_countplot(
     ax=None,
     x_scale: str = "log",
 ):
-     """
-    Plot a count plot for a categorical variable with optional percentile line and scaling.
-    
-    Parameters:
-        df (pd.DataFrame): The DataFrame containing the data.
-        category (str): Column name of the categorical variable to plot.
-        N (int): Maximum number of unique categories to display. Default is 50.
-        percentile (float | None): Quantile line to display (0 to 1) for the counts. If None, no line is shown.
-        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
-        x_scale (str): Scaling for the x-axis, either 'linear' or 'log'. Default is 'log'.
+    """Plots the distribution of a categorical data of a dataframe column of interest.
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest.
+        category (str): column name of df.
+        N (int, optional): first N lines of the df column (category) are plotted. Defaults to 50.
+        percentile (float | None, optional): percentile (between 0 and 1) to mark on the plot as a vertical dashed line. If None, no percentile line is plotted. Defaults to None.
+        ax (matplotlib.axes.Axes, optional): Axes in which to draw the plot. If None, the plot is created on the current active axis. Defaults to None.
+        x_scale (str, optional): scale for x-axis. Defaults to "log".
     """
     top = df[category].value_counts().head(N)
     top = pd.DataFrame(top).reset_index()
