@@ -7,6 +7,15 @@ from matplotlib import pyplot as plt
 
 
 def availability_per_group(df: pd.DataFrame, group: list) -> dict:
+    """Caculates the percentage of available data (non-NA values) for each column in a specified group.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data to analyze.
+        group (list): a list of column names of df for which we want to analyze the availability.
+
+    Returns:
+        dict: contains the column names from the group as keys and the corresponding percentages of available (non-NA) data for each.
+    """
     percent_available = {key: 0 for key in group}
     for col in group:
         percent_available[col] = df[col].notna().mean()
@@ -14,6 +23,13 @@ def availability_per_group(df: pd.DataFrame, group: list) -> dict:
 
 
 def plot_availability(df: pd.DataFrame, group: list, ax=None) -> None:
+    """Plots a heatmap showing the availability (percentage of non-NA data) for a specified group of columns of df.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest.
+        group (list):  a list of column names of df for which we want to plot the availability.
+        ax (matplotlib.axes.Axes, optional): Axes in which to draw the plot. If None, the plot is created on the current active axis. Defaults to None.
+    """
     if ax:
         sns.heatmap(
             df[group].notna(),
@@ -43,6 +59,16 @@ def plot_distributions(
     log_scale: tuple[bool, bool] = (True, False),
     show_legend: bool = True,
 ):
+    """Plot the data distribution of a variable of interest in df.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest to be visualized.
+        variable (str): name of the column in df to plot.
+        ax (matplotlib.axes._subplots.AxesSubplot, optional): The matplotlib axis to draw the plot on. If None, the plot is created on the current active axis. Defaults to None.
+        bins (int, optional): number of bins for the histogram. Defaults to 25.
+        log_scale (tuple[bool, bool], optional): whether to use log axis for x-axis and y-axis. Defaults to (True, False).
+        show_legend (bool, optional): whether to show the legend on the plot. Defaults to True.
+    """
     stats = df[variable].describe()
     sns.histplot(
         df[variable],
@@ -78,10 +104,18 @@ def plot_distributions(
 
 def plot_overlaps(
     df: pd.DataFrame,
-    group: list[str] = None,  # if none, takes all df columns
+    group: list[str] = None,
     ax=None,
     annot: bool = True,
 ):
+    """Calculates and plots the overlap of available (non-NA) data between a specified group of columns of df.
+
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest.
+        group (list[str], optional): a list of df column names for which we want to compare data availability overlap. If None, takes all df columns. Defaults to None.
+        ax (matplotlib.axes.Axes, optional): Axes in which to draw the plot. If None, the plot is created on the current active axis. Defaults to None.
+        annot (bool, optional): whether to show the percentage value on the plot. Defaults to True.
+    """
     if not group:
         group = list(df.columns)
     pairs = combinations(group, 2)
@@ -117,6 +151,15 @@ def categorical_countplot(
     ax=None,
     x_scale: str = "log",
 ):
+    """Plots the distribution of a categorical data of a dataframe column of interest.
+    Args:
+        df (pd.DataFrame): dataframe containing the data of interest.
+        category (str): column name of df.
+        N (int, optional): first N lines of the df column (category) are plotted. Defaults to 50.
+        percentile (float | None, optional): percentile (between 0 and 1) to mark on the plot as a vertical dashed line. If None, no percentile line is plotted. Defaults to None.
+        ax (matplotlib.axes.Axes, optional): Axes in which to draw the plot. If None, the plot is created on the current active axis. Defaults to None.
+        x_scale (str, optional): scale for x-axis. Defaults to "log".
+    """
     top = df[category].value_counts().head(N)
     top = pd.DataFrame(top).reset_index()
     sns.barplot(top, x="count", y=category, ax=ax, color="slategray")
