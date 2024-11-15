@@ -21,6 +21,15 @@ from sklearn.decomposition import PCA
 
 
 def get_Ki(df):
+     """
+    Extracts and converts Ki values from nanomolar (nM) format, removing any '>' or '<' symbols.
+
+    Parameters:
+        df (pd.DataFrame): DataFrame containing a column 'Ki (nM)' with inhibition constant values.
+
+    Returns:
+        pd.Series: Ki values as floats.
+    """
     return (
         df["Ki (nM)"]
         .astype(str)
@@ -33,14 +42,14 @@ def get_Ki(df):
 ##############  EXTRACTING MOLECULAR FEATURES FROM SMILES  ###############
 # Fingerprint
 def get_fingerprint(smiles: str):  # , radius:int=3, list_fmt=True)->list:
-    """Gets the fingerprint from a SMILES string. Easy to use with pd.Series.apply() on a column with smiles data.
+     """
+    Generates the Morgan fingerprint for a molecule from its SMILES representation.
 
-    Args:
-        smiles (str): SMILES string of molecule of interest
-        radius (int, optional): Radius of the generated fingerprint. Defaults to 3.
-
+    Parameters:
+        smiles (str): SMILES string of the molecule.
+    
     Returns:
-        list: Fingerprint of molecule of interest, Nan of no molecule or fingerprint is found.
+        rdkit.DataStructs.cDataStructs.ExplicitBitVect or NaN: Fingerprint object or NaN if molecule is invalid.
     """
     list_fmt = False
     radius = 3
@@ -56,6 +65,15 @@ def get_fingerprint(smiles: str):  # , radius:int=3, list_fmt=True)->list:
 
 
 def get_Hdonors(smiles):
+    """
+    Calculates the number of hydrogen bond donors in a molecule from its SMILES.
+
+    Parameters:
+        smiles (str): SMILES string of the molecule.
+    
+    Returns:
+        int or False: Number of hydrogen bond donors or False if the SMILES is invalid.
+    """
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return False
@@ -64,6 +82,15 @@ def get_Hdonors(smiles):
 
 
 def get_Hacceptors(smiles):
+   """
+    Calculates the number of hydrogen bond acceptors in a molecule from its SMILES.
+
+    Parameters:
+        smiles (str): SMILES string of the molecule.
+    
+    Returns:
+        int or False: Number of hydrogen bond acceptors or False if the SMILES is invalid.
+    """
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return False
@@ -72,6 +99,15 @@ def get_Hacceptors(smiles):
 
 
 def get_MW(smiles):
+    """
+    Calculates the molecular weight of a molecule from its SMILES.
+
+    Parameters:
+        smiles (str): SMILES string of the molecule.
+    
+    Returns:
+        float or False: Molecular weight or False if the SMILES is invalid.
+    """
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return False
@@ -80,6 +116,15 @@ def get_MW(smiles):
 
 
 def get_LogP(smiles):
+    """
+    Calculates the LogP (partition coefficient) of a molecule from its SMILES.
+
+    Parameters:
+        smiles (str): SMILES string of the molecule.
+    
+    Returns:
+        float or False: LogP value or False if the SMILES is invalid.
+    """
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return False
@@ -87,16 +132,43 @@ def get_LogP(smiles):
         return Descriptors.MolLogP(mol)
 
 
-# Compute the Tanimoto similarity between all pairs
 def tanimoto(fp1, fp2) -> float:
+    """
+    Computes the Tanimoto similarity between two molecular fingerprints.
+
+    Parameters:
+        fp1, fp2: Molecular fingerprints.
+    
+    Returns:
+        float: Tanimoto similarity score between the fingerprints.
+    """
     return DataStructs.FingerprintSimilarity(fp1, fp2)
 
 
 def tanimoto_smiles(sm1, sm2) -> float:
+    """
+    Computes the Tanimoto similarity between two molecules based on their SMILES strings.
+
+    Parameters:
+        sm1, sm2 (str): SMILES strings of the molecules.
+    
+    Returns:
+        float: Tanimoto similarity score.
+    """
     return DataStructs.FingerprintSimilarity(get_fingerprint(sm1), get_fingerprint(sm2))
 
 
 def tanimoto_matrix(df: pd.DataFrame, index: str = "Ligand SMILES") -> pd.DataFrame:
+    """
+    Creates a Tanimoto similarity matrix for a DataFrame of molecules based on their SMILES.
+
+    Parameters:
+        df (pd.DataFrame): DataFrame with a column of SMILES strings.
+        index (str): Column name for SMILES strings (default is 'Ligand SMILES').
+    
+    Returns:
+        pd.DataFrame: Square DataFrame of Tanimoto similarity scores.
+    """
     # fingerprints
     fingerprints = df["Ligand SMILES"].apply(get_fingerprint).dropna()
     # Compute the Tanimoto similarity between all pairs
@@ -111,6 +183,15 @@ def tanimoto_matrix(df: pd.DataFrame, index: str = "Ligand SMILES") -> pd.DataFr
 
 # PLOTTING FUNCTIONS
 def closest_dividers(n: int) -> tuple:
+    """
+    Finds two closest divisors of n to create a grid layout.
+
+    Parameters:
+        n (int): Number to find divisors for.
+    
+    Returns:
+        tuple: Closest divisors for n as (rows, columns).
+    """
     import math
 
     dividers = []
@@ -130,6 +211,18 @@ def tanimoto_plot(
     label_type: str = "Target Name",
     title: str = "Tanimoto Similarity Matrix",
 ):
+    """
+    Plots a heatmap of the Tanimoto similarity matrix.
+
+    Parameters:
+        tanimoto_matrix (pd.DataFrame): Tanimoto similarity matrix.
+        show_every_n_labels (int): Interval for showing labels.
+        label_type (str): Label type for the plot.
+        title (str): Title of the plot.
+    
+    Returns:
+        pd.DataFrame: Displayed Tanimoto similarity matrix.
+    """
     fig, ax = plt.subplots(1, 1)
 
     # plot labels
@@ -167,6 +260,16 @@ def show_smiles_with_target(
     ncol: int = None,
     grouped_by: int = None,
 ):
+     """
+    Displays molecular structures with corresponding target names.
+
+    Parameters:
+        df (pd.DataFrame): DataFrame with 'Ligand SMILES' and 'Target Name' columns.
+        title (str): Title for the display.
+        nrow (int): Number of rows in the grid.
+        ncol (int): Number of columns in the grid.
+        grouped_by (int): Number of images grouped by target.
+    """
     smiles_and_target = df[["Ligand SMILES", "Target Name"]].reset_index()
     length = smiles_and_target.shape[0]
     if nrow and ncol:
@@ -205,6 +308,17 @@ def plot_potent_chems(
     nrow: int = None,
     ncol: int = None,
 ) -> None:
+    """
+    Plots the most potent ligands for each target.
+
+    Parameters:
+        df_with_unique_targets (pd.DataFrame): DataFrame with unique target names.
+        df_with_chems (pd.DataFrame): DataFrame with chemical data.
+        chems_per_target (int): Number of ligands per target to plot.
+        title (str): Title for the plot.
+        nrow (int): Number of rows in the plot grid.
+        ncol (int): Number of columns in the plot grid.
+    """
     most_potent_stored = []  # store all structures
     for target in df_with_unique_targets.index:
         most_potent = df_with_chems[df_with_chems["Target Name"] == target].sort_values(
@@ -225,6 +339,17 @@ def plot_potent_chems(
 
 
 def show_smiles(df: pd.DataFrame, title="", n_rows=5, n_cols=5, random_sample=False):
+    """
+    Displays molecular structures in a grid.
+
+    Parameters:
+        df (pd.DataFrame): DataFrame with 'Ligand SMILES' column.
+        title (str): Title for the plot.
+        n_rows (int): Number of rows in the grid.
+        n_cols (int): Number of columns in the grid.
+        random_sample (bool): Whether to randomly sample SMILES strings.
+    """
+    
     unique_smiles = df["Ligand SMILES"].unique()
 
     n_sampled = n_rows * n_cols
@@ -249,13 +374,14 @@ def show_smiles(df: pd.DataFrame, title="", n_rows=5, n_cols=5, random_sample=Fa
 
 def respects_lipinski(smiles: str, verbose=False) -> bool:
     """
-    Checks if a molecule respects Lipinski's Rule of Five.
+    Checks if a molecule adheres to Lipinski's Rule of Five.
 
-    Args:
+    Parameters:
         smiles (str): SMILES string of the molecule.
-
+        verbose (bool): Whether to print details of the rules.
+    
     Returns:
-        bool: True if molecule respects Lipinski's rules, False otherwise.
+        bool: True if molecule follows Lipinski's rules, False otherwise.
     """
     # Convert SMILES to molecule
     mol = Chem.MolFromSmiles(smiles)

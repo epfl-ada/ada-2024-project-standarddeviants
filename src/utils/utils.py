@@ -11,6 +11,32 @@ def lower(s):
 # Helper function to find the best match
 def fuzzy_merge(df1, df2, left_on, right_on, how, threshold=80):
     matches = []
+    """
+    Fuzzy merges two DataFrames by matching similar strings in specified columns.
+
+    Parameters
+    ----------
+    df1 : pd.DataFrame
+        The left DataFrame to merge.
+    df2 : pd.DataFrame
+        The right DataFrame to merge.
+    left_on : str
+        Column name in `df1` to match on.
+    right_on : str
+        Column name in `df2` to match on.
+    how : str
+        Type of merge ('left', 'right', 'inner', or 'outer').
+    threshold : int, optional
+        Minimum similarity score (0-100) for a match; default is 80.
+
+    Returns
+    -------
+    pd.DataFrame
+        A merged DataFrame with an added `fuzzy_match_<left_on>` column in `df1`, containing the 
+        best match in `df2` if it meets the threshold.
+
+    """
+    
     for name in tqdm(df1[left_on]):
         # Get the best match with a score over the threshold
         match, score, _ = process.extractOne(
