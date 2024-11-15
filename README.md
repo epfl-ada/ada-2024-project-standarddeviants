@@ -133,6 +133,8 @@ pip install -e . --use-pep517
 │   ├── README.md # Explains how to get BindingDB_All.tsv
 │   └── BindingDB_All.tsv
 ├── pip_requirements.txt
+├── .gitignore
+├── .pre-commit-config.yaml # For formatting code with black on every push
 ├── results.ipynb
 ├── setup.py # Setup file in order to build the local src package with pip
 ├── src
