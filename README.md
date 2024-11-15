@@ -1,4 +1,4 @@
-# Breaking Good: How to make a successful drug
+# Mapping the Molecular Path to Success: A causal analysis of success in drug discovery
 ## Abstract
 Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery.
 
@@ -91,6 +91,10 @@ A key pillar of this project is defining success metrics and understanding their
 - Step 4: Create the data story webpage.
 
 ## Timeline and Team Organisation
+
+![Dessin sans titre (1)](https://github.com/user-attachments/assets/66bc1b11-d585-4c36-a902-7099d5d8df7f)
+
+
 - White: All
 - Blue: Amélie and Wesley
 - Green: Guillaume and Gregor
@@ -121,7 +125,7 @@ pip install -e . --use-pep517
 
 ## Repository Structure
 
-```py
+```shell
 .
 ├── README.md
 ├── data
@@ -154,7 +158,7 @@ pip install -e . --use-pep517
 │   └── utils
 │       ├── __init__.py
 │       └── utils.py
-└── tests # Various notebooks were preliminary EDA was done
+└── tests # Various notebooks where preliminary EDA was done
     ├── ...
     └── ...
 ```
