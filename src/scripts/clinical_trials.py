@@ -11,13 +11,13 @@ from tqdm.notebook import tqdm
 
 
 def get_zinc_clinical_trial_data(id: str) -> Union[List[Union[str, None]], str]:
-    """_summary_
+    """Get ZINC clinical trial data from a ZINC ID
 
     Args:
-        id (str): _description_
+        id (str): ZINC ID
 
     Returns:
-        Union[List[Union[str, None]], str]: _description_
+        Union[List[Union[str, None]], str]: Clinical trials data
     """
     url = f"https://zinc.docking.org/substances/{id}/trials.json?count=all"
     try:
@@ -32,14 +32,14 @@ def get_zinc_clinical_trial_data(id: str) -> Union[List[Union[str, None]], str]:
 def get_zinc_clinical_trial_data_for_all_ids(
     ids: list[str], data_path: str = None
 ) -> dict[str, Union[List[Union[str, None]], str]]:
-    """_summary_
+    """Get ZINC clinical trial data for a given list of ZINC IDs
 
     Args:
-        ids (list[str]): _description_
-        data_path (str, optional): _description_. Defaults to None.
+        ids (list[str]): ZINC IDs
+        data_path (str, optional): The path with existing data or data to be created. Defaults to None.
 
     Returns:
-        dict[str, Union[List[Union[str, None]], str]]: _description_
+        dict[str, Union[List[Union[str, None]], str]]: The clinical trials data
     """
     if data_path is None:
         data_path = os.path.join(
@@ -64,13 +64,13 @@ def get_zinc_clinical_trial_data_for_all_ids(
 
 
 def load_clinical_trials_data(path_to_data: str = None) -> pd.DataFrame:
-    """Load the clinicals trials data from the output of
+    """Load the clinicals trials data from the output of `get_zinc_clinical_trial_data_for_all_ids`.
 
     Args:
-        path_to_data (str, optional): _description_. Defaults to None.
+        path_to_data (str, optional): The path with existing data. Defaults to None.
 
     Returns:
-        pd.DataFrame: _description_
+        pd.DataFrame: The clinical trial data after some pre-processing
     """
     if path_to_data is None:
         path_to_data = os.path.join(
@@ -101,19 +101,19 @@ def plot_clinical_counts(
     top_n: int | None = None,
     yscale: str | None = None,
 ):
-    """_summary_
+    """Custom coutplot for clinical trials data.
 
     Args:
-        df (pd.DataFrame): _description_
-        ax (_type_): _description_
-        col (str): _description_
-        ylabel (str, optional): _description_. Defaults to None.
-        title (str, optional): _description_. Defaults to None.
-        top_n (int | None, optional): _description_. Defaults to None.
-        yscale (str | None, optional): _description_. Defaults to None.
+        df (pd.DataFrame): Clinical trail dataframe - ouput from `load_clinical_trials_data`
+        ax (matplotlib axis): matplotlib axis
+        col (str): Column name in the df.
+        ylabel (str, optional): The matplotlib ylabel. Defaults to None.
+        title (str, optional): The matplotlib title. Defaults to None.
+        top_n (int | None, optional): Shows the top_n first values in the column. Defaults to None.
+        yscale (str | None, optional): The matplotlib yscale. Defaults to None.
 
     Returns:
-        _type_: _description_
+        matplotlib axis: _description_
     """
     count_df = df[col].value_counts().reset_index()
     if top_n is not None:
