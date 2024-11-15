@@ -172,9 +172,10 @@ def get_patent_info(patent_number):
     """
     Get information of a patent using google patents
 
-    :patent_number: str, patent number
+    Args:
+    patent_number: str, patent number
 
-    return: list containing patent title, abstract, url, status, citations
+    Returns: list containing patent title, abstract, url, status, citations
     """
     url = f"https://patents.google.com/patent/{patent_number}/en"
     try:
