@@ -7,6 +7,16 @@ from matplotlib import pyplot as plt
 
 
 def availability_per_group(df: pd.DataFrame, group: list) -> dict:
+       """
+    Calculate the availability of each column in a given group within a DataFrame.
+    
+    Parameters:
+        df (pd.DataFrame): The DataFrame to analyze.
+        group (list): List of column names to check availability for.
+    
+    Returns:
+        dict: A dictionary where keys are column names and values are the fraction of non-null entries.
+    """
     percent_available = {key: 0 for key in group}
     for col in group:
         percent_available[col] = df[col].notna().mean()
@@ -14,6 +24,14 @@ def availability_per_group(df: pd.DataFrame, group: list) -> dict:
 
 
 def plot_availability(df: pd.DataFrame, group: list, ax=None) -> None:
+    """
+    Plot a heatmap of data availability for a specific group of columns and display availability percentages.
+    
+    Parameters:
+        df (pd.DataFrame): The DataFrame to plot.
+        group (list): List of column names to include in the heatmap.
+        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
+    """
     if ax:
         sns.heatmap(
             df[group].notna(),
@@ -36,6 +54,7 @@ def plot_availability(df: pd.DataFrame, group: list, ax=None) -> None:
 
 
 def plot_distributions(
+    
     df: pd.DataFrame,
     variable: str,
     ax=None,
@@ -43,6 +62,17 @@ def plot_distributions(
     log_scale: tuple[bool, bool] = (True, False),
     show_legend: bool = True,
 ):
+    """
+    Plot the distribution of a variable with optional quartile lines and logarithmic scaling.
+    
+    Parameters:
+        df (pd.DataFrame): The DataFrame containing the data.
+        variable (str): Column name of the variable to plot.
+        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
+        bins (int): Number of bins for the histogram. Default is 25.
+        log_scale (tuple[bool, bool]): Tuple indicating logarithmic scaling for x and y axes.
+        show_legend (bool): Whether to show a legend for quartile lines. Default is True.
+    """
     stats = df[variable].describe()
     sns.histplot(
         df[variable],
@@ -82,6 +112,15 @@ def plot_overlaps(
     ax=None,
     annot: bool = True,
 ):
+    """
+    Plot a heatmap of column overlaps (percentage of non-null values shared between columns) for a group.
+    
+    Parameters:
+        df (pd.DataFrame): The DataFrame to analyze.
+        group (list[str], optional): List of column names to consider for overlaps. Uses all columns if None.
+        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
+        annot (bool): Whether to annotate the heatmap cells with percentages. Default is True.
+    """
     if not group:
         group = list(df.columns)
     pairs = combinations(group, 2)
@@ -117,6 +156,17 @@ def categorical_countplot(
     ax=None,
     x_scale: str = "log",
 ):
+     """
+    Plot a count plot for a categorical variable with optional percentile line and scaling.
+    
+    Parameters:
+        df (pd.DataFrame): The DataFrame containing the data.
+        category (str): Column name of the categorical variable to plot.
+        N (int): Maximum number of unique categories to display. Default is 50.
+        percentile (float | None): Quantile line to display (0 to 1) for the counts. If None, no line is shown.
+        ax (matplotlib.axes._subplots.AxesSubplot, optional): Matplotlib axis to draw the plot on.
+        x_scale (str): Scaling for the x-axis, either 'linear' or 'log'. Default is 'log'.
+    """
     top = df[category].value_counts().head(N)
     top = pd.DataFrame(top).reset_index()
     sns.barplot(top, x="count", y=category, ax=ax, color="slategray")
