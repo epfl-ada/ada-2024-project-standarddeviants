@@ -247,7 +247,7 @@ def show_smiles(df: pd.DataFrame, title="", n_rows=5, n_cols=5, random_sample=Fa
     plt.show()
 
 
-def respects_lipinski(smiles: str, verbose=False) -> bool:
+def lipinski(smiles: str, verbose=False) -> bool:
     """
     Checks if a molecule respects Lipinski's Rule of Five.
 
