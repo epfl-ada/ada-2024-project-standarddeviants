@@ -1,9 +1,4 @@
-from ete3 import NCBITaxa
-
 from src.utils import utils
-
-# Taxonomy
-ncbi = NCBITaxa()
 
 
 def get_taxon_id(species_name):
@@ -16,6 +11,10 @@ def get_taxon_id(species_name):
     Returns:
         taxon_id (int): The corresponding taxon ID, or None if not found.
     """
+    # Taxonomy
+    from ete3 import NCBITaxa
+
+    ncbi = NCBITaxa()
     try:
         # Get taxon ID for the species name
         taxon_id = ncbi.get_name_translator([species_name])
