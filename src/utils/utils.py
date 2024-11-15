@@ -1,7 +1,8 @@
+from typing import Dict, List, Optional
+
+import pandas as pd
 from thefuzz import fuzz, process
 from tqdm import tqdm
-from typing import Optional, Dict, List 
-import pandas as pd
 
 
 def lower(s):
@@ -10,7 +11,6 @@ def lower(s):
 
 # Helper function to find the best match
 def fuzzy_merge(df1, df2, left_on, right_on, how, threshold=80):
-    matches = []
     """
     Fuzzy merges two DataFrames by matching similar strings in specified columns.
 
@@ -32,11 +32,11 @@ def fuzzy_merge(df1, df2, left_on, right_on, how, threshold=80):
     Returns
     -------
     pd.DataFrame
-        A merged DataFrame with an added `fuzzy_match_<left_on>` column in `df1`, containing the 
+        A merged DataFrame with an added `fuzzy_match_<left_on>` column in `df1`, containing the
         best match in `df2` if it meets the threshold.
-
     """
-    
+    matches = []
+
     for name in tqdm(df1[left_on]):
         # Get the best match with a score over the threshold
         match, score, _ = process.extractOne(
@@ -54,11 +54,11 @@ def fuzzy_merge(df1, df2, left_on, right_on, how, threshold=80):
 
 
 def group_categories(
-     name: str,
+    name: str,
     in_mapping: Optional[dict[str, list[str]]],
     check_key_for_in_mapping: bool = True,
     endswith_mapping: Optional[dict[str, list[str]]] = None,
-    priority_list: Optional[List[str]] = None
+    priority_list: Optional[List[str]] = None,
 ) -> str:
     """_summary_
 
@@ -99,43 +99,10 @@ def group_categories(
     return name
 
 
-if __name__ == "__main__":
-    in_mapping = {
-        "Neurodegeneration": [
-            "parkinson",
-            "alzeihmer",
-        ],
-        "Cancer": [
-            "leukemia",
-            "oncogene",
-        ],
-        "Obesity": [],
-        "Neoplasia": [],
-        "Hirschsprung Disease": [],
-        "Immunodeficiency": [],
-        "Agammaglobulinemia": [],
-        "Thrombocythemia": [],
-        "Diabetes": [],
-        "Cornelia de Lange syndrome": [],
-        "QT syndrome": [],
-    }
-
-    endswith_mapping = {"Cancer": ["oma"]}
-
-    f = lambda x: group_categories(
-        x,
-        in_mapping=in_mapping,
-        check_key_for_in_mapping=True,
-        endswith_mapping=endswith_mapping,
-    )
-
-    # df[... Class] = df[...].apply(f)
-
-
 def count_classified_rows(df: pd.DataFrame) -> int:
     """
-    Count how many rows in the DataFrame have been classified based on the `Target Name` 
-    and 'Target Class' columns. A row is considered classified if the `Target Class` 
+    Count how many rows in the DataFrame have been classified based on the `Target Name`
+    and 'Target Class' columns. A row is considered classified if the `Target Class`
     is different from 'Target Name'.
 
     Args:
@@ -144,14 +111,15 @@ def count_classified_rows(df: pd.DataFrame) -> int:
     Returns:
         int: The count of classified rows.
     """
-    if 'Target Name' not in df or 'Target Class' not in df:
-        raise ValueError("DataFrame must contain 'Target Name' and 'Target Class' columns")
-    
+    if "Target Name" not in df or "Target Class" not in df:
+        raise ValueError(
+            "DataFrame must contain 'Target Name' and 'Target Class' columns"
+        )
+
     # Count rows where 'Target Class' is not empty or NaN
-    classified_count = ((df['Target Name'] != df['Target Class']) & (df['Target Class'].notna()))
-    
+    classified_count = (df["Target Name"] != df["Target Class"]) & (
+        df["Target Class"].notna()
+    )
+
     # Return the number of classified rows
     return classified_count.sum()
-
-
-# print(count_classified_rows(...)) 

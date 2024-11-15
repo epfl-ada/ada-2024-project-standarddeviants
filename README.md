@@ -13,7 +13,7 @@ To guide this research, we will attempt to answer the following questions:
 
 #### Protein Classes
 - What are the most targeted protein classes in research and development? How does this relate to diseases?
-- **What are the most "successful" target classes, in terms of publications, citations, patents and drug status?**
+- **What are the most "successful" target classes, in terms of publications, citations, prescriptions, patents and drug status?**
 
 #### Molecular Features
 - **What are the most "successful" ligands of different protein classes?**

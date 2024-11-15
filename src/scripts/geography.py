@@ -10,10 +10,10 @@ import requests
 def get_location(doi):
     """
     Retrieves the location of the affiliated institution for the main author of a given article based on its DOI.
-    
+
     Parameters:
         doi (str): The DOI of the article.
-    
+
     Returns:
         str: The name of the main author's affiliated institution or an error message if not found.
     """
@@ -38,12 +38,12 @@ def get_location(doi):
 
 
 def add_location(df):
-   """
+    """
     Adds a column with affiliated institution locations to a DataFrame containing article DOIs.
-    
+
     Parameters:
         df (pd.DataFrame): DataFrame with a column "Article DOI" containing DOIs of articles.
-        
+
     Returns:
         pd.DataFrame: DataFrame with an added "Affiliated Location" column.
     """
@@ -58,10 +58,10 @@ def add_location(df):
 def extract_country(affiliation):
     """
     Extracts the country from an institution's affiliation address, including mappings for US states.
-    
+
     Parameters:
         affiliation (str): The affiliation address containing location information.
-    
+
     Returns:
         str or None: The country name, "United States of America" if a US state is detected,
                      or None if no country could be determined.

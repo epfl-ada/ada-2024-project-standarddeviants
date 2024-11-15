@@ -1,27 +1,16 @@
 # imports
-import os
-
-import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
 # plotting tools
 import seaborn as sns
-import umap
 from rdkit import Chem
 from rdkit.Chem import AllChem, DataStructs, Descriptors, Draw
 
-# rdkit tools
-from rdkit.Chem.Scaffolds import MurckoScaffold
-from scipy.cluster.hierarchy import dendrogram, linkage
-from sklearn.decomposition import PCA
-
-# import networkx as nx
-
 
 def get_Ki(df):
-     """
+    """
     Extracts and converts Ki values from nanomolar (nM) format, removing any '>' or '<' symbols.
 
     Parameters:
@@ -42,12 +31,12 @@ def get_Ki(df):
 ##############  EXTRACTING MOLECULAR FEATURES FROM SMILES  ###############
 # Fingerprint
 def get_fingerprint(smiles: str):  # , radius:int=3, list_fmt=True)->list:
-     """
+    """
     Generates the Morgan fingerprint for a molecule from its SMILES representation.
 
     Parameters:
         smiles (str): SMILES string of the molecule.
-    
+
     Returns:
         rdkit.DataStructs.cDataStructs.ExplicitBitVect or NaN: Fingerprint object or NaN if molecule is invalid.
     """
@@ -70,7 +59,7 @@ def get_Hdonors(smiles):
 
     Parameters:
         smiles (str): SMILES string of the molecule.
-    
+
     Returns:
         int or False: Number of hydrogen bond donors or False if the SMILES is invalid.
     """
@@ -82,12 +71,12 @@ def get_Hdonors(smiles):
 
 
 def get_Hacceptors(smiles):
-   """
+    """
     Calculates the number of hydrogen bond acceptors in a molecule from its SMILES.
 
     Parameters:
         smiles (str): SMILES string of the molecule.
-    
+
     Returns:
         int or False: Number of hydrogen bond acceptors or False if the SMILES is invalid.
     """
@@ -104,7 +93,7 @@ def get_MW(smiles):
 
     Parameters:
         smiles (str): SMILES string of the molecule.
-    
+
     Returns:
         float or False: Molecular weight or False if the SMILES is invalid.
     """
@@ -121,7 +110,7 @@ def get_LogP(smiles):
 
     Parameters:
         smiles (str): SMILES string of the molecule.
-    
+
     Returns:
         float or False: LogP value or False if the SMILES is invalid.
     """
@@ -138,7 +127,7 @@ def tanimoto(fp1, fp2) -> float:
 
     Parameters:
         fp1, fp2: Molecular fingerprints.
-    
+
     Returns:
         float: Tanimoto similarity score between the fingerprints.
     """
@@ -151,7 +140,7 @@ def tanimoto_smiles(sm1, sm2) -> float:
 
     Parameters:
         sm1, sm2 (str): SMILES strings of the molecules.
-    
+
     Returns:
         float: Tanimoto similarity score.
     """
@@ -165,7 +154,7 @@ def tanimoto_matrix(df: pd.DataFrame, index: str = "Ligand SMILES") -> pd.DataFr
     Parameters:
         df (pd.DataFrame): DataFrame with a column of SMILES strings.
         index (str): Column name for SMILES strings (default is 'Ligand SMILES').
-    
+
     Returns:
         pd.DataFrame: Square DataFrame of Tanimoto similarity scores.
     """
@@ -188,7 +177,7 @@ def closest_dividers(n: int) -> tuple:
 
     Parameters:
         n (int): Number to find divisors for.
-    
+
     Returns:
         tuple: Closest divisors for n as (rows, columns).
     """
@@ -219,7 +208,7 @@ def tanimoto_plot(
         show_every_n_labels (int): Interval for showing labels.
         label_type (str): Label type for the plot.
         title (str): Title of the plot.
-    
+
     Returns:
         pd.DataFrame: Displayed Tanimoto similarity matrix.
     """
@@ -260,7 +249,7 @@ def show_smiles_with_target(
     ncol: int = None,
     grouped_by: int = None,
 ):
-     """
+    """
     Displays molecular structures with corresponding target names.
 
     Parameters:
@@ -349,7 +338,7 @@ def show_smiles(df: pd.DataFrame, title="", n_rows=5, n_cols=5, random_sample=Fa
         n_cols (int): Number of columns in the grid.
         random_sample (bool): Whether to randomly sample SMILES strings.
     """
-    
+
     unique_smiles = df["Ligand SMILES"].unique()
 
     n_sampled = n_rows * n_cols
@@ -379,7 +368,7 @@ def lipinski(smiles: str, verbose=False) -> bool:
     Parameters:
         smiles (str): SMILES string of the molecule.
         verbose (bool): Whether to print details of the rules.
-    
+
     Returns:
         bool: True if molecule follows Lipinski's rules, False otherwise.
     """
