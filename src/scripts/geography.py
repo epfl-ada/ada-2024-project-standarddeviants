@@ -9,11 +9,13 @@ import requests
 
 def get_location(doi):
     """
-    Get affiliated institution location based on a DOI
-
-    :doi: str, DOI of article
-
-    return: location (str)
+    Retrieves the location of the affiliated institution for the main author of a given article based on its DOI.
+    
+    Parameters:
+        doi (str): The DOI of the article.
+    
+    Returns:
+        str: The name of the main author's affiliated institution or an error message if not found.
     """
     url = f"https://api.crossref.org/works/{doi}"
     response = requests.get(url)
@@ -36,12 +38,14 @@ def get_location(doi):
 
 
 def add_location(df):
-    """
-    Add affiliated institution location to dataframes
-
-    :df: dataframe containing a column of DOIs TITLED "Article DOI"
-
-    return: new Pandas.Dataframe with an additional "Affiliated Location" column
+   """
+    Adds a column with affiliated institution locations to a DataFrame containing article DOIs.
+    
+    Parameters:
+        df (pd.DataFrame): DataFrame with a column "Article DOI" containing DOIs of articles.
+        
+    Returns:
+        pd.DataFrame: DataFrame with an added "Affiliated Location" column.
     """
     # group all identical DOIs together and get their affiliated institution location
     pub_counts = df["Article DOI"].value_counts().to_frame().reset_index()
@@ -53,11 +57,14 @@ def add_location(df):
 
 def extract_country(affiliation):
     """
-    Extracts the country from an affiliation address
-
-    :affiliation: str, containing the address of interest
-
-    return: the country (str)
+    Extracts the country from an institution's affiliation address, including mappings for US states.
+    
+    Parameters:
+        affiliation (str): The affiliation address containing location information.
+    
+    Returns:
+        str or None: The country name, "United States of America" if a US state is detected,
+                     or None if no country could be determined.
     """
     us_states = {
         "Alabama",

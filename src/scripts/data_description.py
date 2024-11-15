@@ -52,6 +52,7 @@ def plot_availability(df: pd.DataFrame, group: list, ax=None) -> None:
 
 
 def plot_distributions(
+    
     df: pd.DataFrame,
     variable: str,
     ax=None,
