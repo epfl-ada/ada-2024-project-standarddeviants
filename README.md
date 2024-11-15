@@ -1,4 +1,5 @@
-# Mapping the Molecular Path to Success: A causal analysis of success in drug discovery
+# Mapping the Molecular Path to Health: *A causal analysis of success in drug discovery*
+
 ## Abstract
 Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery.
 
