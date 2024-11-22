@@ -58,6 +58,7 @@ def get_zinc_clinical_trial_data_for_all_ids(
         if id not in zinc_data.keys():
             zinc_data.update({id: {"references": get_zinc_clinical_trial_data(id)}})
         if i != 0 and i % 100 == 0:
+            print("dumping data")
             with open(data_path, "w") as f:
                 json.dump(zinc_data, f)
     return zinc_data
