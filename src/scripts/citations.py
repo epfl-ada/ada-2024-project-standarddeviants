@@ -182,11 +182,14 @@ def get_patent_info(patent_number):
         response = requests.get(url)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-
-        title = soup.find("title").get_text()  # Find patent title
-        abstract = soup.find("meta", {"name": "description"})[
-            "content"
-        ]  # Find patent abstract
+        title_ = soup.find("title")
+        title = title_.get_text() if title_ else "Unknown Title"
+        abstract_ = soup.find("meta", {"name": "description"})
+        abstract = (
+            abstract_["content"]
+            if abstract_ and "content" in abstract_.attrs
+            else "No abstract available"
+        )
         status = soup.find("span", {"itemprop": "ifiStatus"})  # Find patent status
         status = status.get_text() if status else "N/A"
         families_citing_header = soup.find(
