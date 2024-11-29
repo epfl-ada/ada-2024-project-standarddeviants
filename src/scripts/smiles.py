@@ -28,6 +28,25 @@ def get_Ki(df):
     )
 
 
+def get_IC50(df):
+    """
+    Extracts and converts IC50 values from nanomolar (nM) format, removing any '>' or '<' symbols.
+
+    Parameters:
+        df (pd.DataFrame): DataFrame containing a column 'IC50 (nM)' with inhibition constant values.
+
+    Returns:
+        pd.Series: Ki values as floats.
+    """
+    return (
+        df["IC50 (nM)"]
+        .astype(str)
+        .str.replace(">", "")
+        .str.replace("<", "")
+        .astype(float)
+    )
+
+
 ##############  EXTRACTING MOLECULAR FEATURES FROM SMILES  ###############
 # Fingerprint
 def get_fingerprint(smiles: str):  # , radius:int=3, list_fmt=True)->list:
@@ -119,6 +138,101 @@ def get_LogP(smiles):
         return False
     else:
         return Descriptors.MolLogP(mol)
+
+
+def get_MolDescriptors(smiles: str):
+    """
+    Calculates the LogP (partition coefficient) of a molecule from its SMILES.
+
+    Parameters:
+        smiles (str): SMILES string of the molecule.
+
+    Returns:
+        dict or False: Dictionary of all molecular descriptors or False if the SMILES is invalid.
+    """
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        return {
+            "Molecular Weight": None,
+            "C LogP": None,
+            "FractionCSP3": None,
+            "HallKierAlpha": None,
+            "HeavyAtomCount": None,
+            "HeavyAtomMolWt": None,
+            "Ipc": None,
+            "Kappa1": None,
+            "Kappa2": None,
+            "Kappa3": None,
+            "LabuteASA": None,
+            "MaxAbsEStateIndex": None,
+            "MaxAbsPartialCharge": None,
+            "MaxEStateIndex": None,
+            "MaxPartialCharge": None,
+            "MinAbsEStateIndex": None,
+            "MinAbsPartialCharge": None,
+            "MinEStateIndex": None,
+            "MinPartialCharge": None,
+            "MolLogP": None,
+            "MolMR": None,
+            "NHOHCount": None,
+            "NOCount": None,
+            "NumAliphaticCarbocycles": None,
+            "NumAliphaticHeterocycles": None,
+            "NumAliphaticRings": None,
+            "NumAromaticCarbocycles": None,
+            "NumAromaticHeterocycles": None,
+            "NumAromaticRings": None,
+            "NumHAcceptors": None,
+            "NumHDonors": None,
+            "NumHeteroatoms": None,
+            "NumRadicalElectrons": None,
+            "NumRotatableBonds": None,
+            "NumSaturatedCarbocycles": None,
+            "NumSaturatedHeterocycles": None,
+            "NumSaturatedRings": None,
+            "NumValenceElectrons": None,
+        }
+    else:
+        return {
+            "Molecular Weight": Descriptors.MolWt(mol),
+            "C LogP": Descriptors.MolLogP(mol),
+            "FractionCSP3": Descriptors.FractionCSP3(mol),
+            "HallKierAlpha": Descriptors.HallKierAlpha(mol),
+            "HeavyAtomCount": Descriptors.HeavyAtomCount(mol),
+            "HeavyAtomMolWt": Descriptors.HeavyAtomMolWt(mol),
+            "Ipc": Descriptors.Ipc(mol),
+            "Kappa1": Descriptors.Kappa1(mol),
+            "Kappa2": Descriptors.Kappa2(mol),
+            "Kappa3": Descriptors.Kappa3(mol),
+            "LabuteASA": Descriptors.LabuteASA(mol),
+            "MaxAbsEStateIndex": Descriptors.MaxAbsEStateIndex(mol),
+            "MaxAbsPartialCharge": Descriptors.MaxAbsPartialCharge(mol),
+            "MaxEStateIndex": Descriptors.MaxEStateIndex(mol),
+            "MaxPartialCharge": Descriptors.MaxPartialCharge(mol),
+            "MinAbsEStateIndex": Descriptors.MinAbsEStateIndex(mol),
+            "MinAbsPartialCharge": Descriptors.MinAbsPartialCharge(mol),
+            "MinEStateIndex": Descriptors.MinEStateIndex(mol),
+            "MinPartialCharge": Descriptors.MinPartialCharge(mol),
+            "MolLogP": Descriptors.MolLogP(mol),
+            "MolMR": Descriptors.MolMR(mol),
+            "NHOHCount": Descriptors.NHOHCount(mol),
+            "NOCount": Descriptors.NOCount(mol),
+            "NumAliphaticCarbocycles": Descriptors.NumAliphaticCarbocycles(mol),
+            "NumAliphaticHeterocycles": Descriptors.NumAliphaticHeterocycles(mol),
+            "NumAliphaticRings": Descriptors.NumAliphaticRings(mol),
+            "NumAromaticCarbocycles": Descriptors.NumAromaticCarbocycles(mol),
+            "NumAromaticHeterocycles": Descriptors.NumAromaticHeterocycles(mol),
+            "NumAromaticRings": Descriptors.NumAromaticRings(mol),
+            "NumHAcceptors": Descriptors.NumHAcceptors(mol),
+            "NumHDonors": Descriptors.NumHDonors(mol),
+            "NumHeteroatoms": Descriptors.NumHeteroatoms(mol),
+            "NumRadicalElectrons": Descriptors.NumRadicalElectrons(mol),
+            "NumRotatableBonds": Descriptors.NumRotatableBonds(mol),
+            "NumSaturatedCarbocycles": Descriptors.NumSaturatedCarbocycles(mol),
+            "NumSaturatedHeterocycles": Descriptors.NumSaturatedHeterocycles(mol),
+            "NumSaturatedRings": Descriptors.NumSaturatedRings(mol),
+            "NumValenceElectrons": Descriptors.NumValenceElectrons(mol),
+        }
 
 
 def tanimoto(fp1, fp2) -> float:
