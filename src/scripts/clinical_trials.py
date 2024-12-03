@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import requests
 import seaborn as sns
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 
 
 def get_zinc_clinical_trial_data(id: str) -> Union[List[Union[str, None]], str]:
