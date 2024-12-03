@@ -22,5 +22,7 @@ zinc_ids_dict = {
 }
 
 cl.get_zinc_clinical_trial_data_for_all_ids(
-    zinc_ids_dict["###### ECRIRE TON NOM A LA PLACE DE CA ######"]
-)  # <-------- REMPLIR TON NOM ICI
+    zinc_ids_dict["Guillaume"]  # <-------- REMPLIR TON NOM ICI
+)
+
+print("Finished")
