@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="./assets/js/color-modes.js"></script>
+  <head><script src="frontend/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +15,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="style.css" rel="stylesheet">
+    <link href="frontend/style/style.css" rel="stylesheet">
 
 
   </head>
@@ -126,7 +126,7 @@
 
 <main>
 
-  <section class="py-5 text-center container">
+  <section class="py-5 text-center container" style="background-image: url('frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Album example</h1>
@@ -145,16 +145,13 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <!-- <iframe class="plotly-iframe" src="diseases_timeseries.html"></iframe> -->
-            <img src="diseases_timeseries.png" class="img-fluid" alt="...">
+            <img src="frontend/figures/diseases_timeseries.svg" class="img-fluid" alt="...">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="index.html" type="button" class="btn btn-sm btn-outline-primary">View in Data Story</a>
-                  <a href="diseases_timeseries.html" type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#diseases_timeseries">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/diseases_timeseries.html">View</a>
                 </div>
                 <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
@@ -163,15 +160,15 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="frontend/figures/disease_classes.svg" class="img-fluid" alt="...">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#disease_classes">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/disease_classes.html">View</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
@@ -298,7 +295,7 @@
     <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
 </html>
