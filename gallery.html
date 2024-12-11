@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
   <head>
-    <!-- <script src="./frontend/assets/js/color-modes.js"></script> -->
+    <!-- <script src="frontend/assets/js/color-modes.js"></script> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,9 +16,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="./frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./frontend/style/style.css" rel="stylesheet">
+    <link href="frontend/style/style.css" rel="stylesheet">
+    <!-- <link href="frontend/style/carousel.css" rel="stylesheet"> -->
 
 
   </head>
@@ -127,18 +128,65 @@
 
 <main>
 
-  <section class="py-5 text-center container" style="background-image: url('./frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
+  <!-- <section class="py-5 text-center container" style="background-image: url('frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Album example</h1>
         <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
         <p>
           <a href="index.html" class="btn btn-primary my-2">Go back to Home</a>
-          <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
         </p>
       </div>
     </div>
-  </section>
+  </section> -->
+
+  <!-- <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img srcfrontend/figures/Patent_Status_Diseases.svg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Example headline.</h1>
+            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img srcfrontend/figures/availability_bk.svg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline.</h1>
+            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img srcfrontend/figures/Citations_per_Disease.svg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
 
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
@@ -146,13 +194,13 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <img src="./frontend/figures/diseases_timeseries.svg" class="img-fluid" alt="...">
+            <img src="frontend/figures/diseases_timeseries.svg" class="img-fluid" alt="...">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a class="btn btn-sm btn-outline-primary" href="index.html#diseases_timeseries">View in Data Story</a>
-                  <a class="btn btn-sm btn-outline-secondary" href="./frontend/figures/diseases_timeseries.html">View</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/diseases_timeseries.html">View</a>
                 </div>
                 <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
@@ -161,13 +209,13 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img src="./frontend/figures/disease_classes.svg" class="img-fluid" alt="...">
+            <img src="frontend/figures/disease_classes.svg" class="img-fluid" alt="...">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a class="btn btn-sm btn-outline-primary" href="index.html#disease_classes">View in Data Story</a>
-                  <a class="btn btn-sm btn-outline-secondary" href="./frontend/figures/disease_classes.html">View</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/disease_classes.html">View</a>
                 </div>
                 <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
@@ -296,7 +344,7 @@
     <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>
-<script src="./frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
 </html>
