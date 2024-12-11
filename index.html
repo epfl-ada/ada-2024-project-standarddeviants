@@ -20,12 +20,11 @@
 
 
   </head>
-  <body data-bs-spy="scroll" data-bs-target="#custom-navbar" data-bs-offset="0">
+  <!-- <body data-bs-spy="scroll" data-bs-target="#custom-navbar" data-bs-offset="0"> -->
+    <body>
 
 <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark" id="custom-navbar">
   <div class="container">
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-      <div class="offcanvas-body">
         <a class="navbar-brand col-lg-3 me-0" href="#">Data Story</a>
         <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
           <li class="nav-item dropdown">
@@ -64,11 +63,10 @@
           <button class="btn btn-primary">Button</button>
         </div> -->
       </div>
-    </div>
-  </div>
 </nav>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary vh-100 parallax" style="background-image: url('frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
+
+<div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary parallax vh-100" style="background-image: url('frontend/imgs/proteins.png'); background-size: cover; background-position: center; height: 100%;">
   <div class="col-md-6 p-lg-5 mx-auto my-5">
     <h1 class="display-3 fw-bold">Mapping the Molecular Path to Health</h1>
     <h3 class="fw-normal text-muted mb-3">A Causal Analysis of Success in Drug Discovery</h3>
@@ -77,7 +75,39 @@
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
 
-<div class="col-lg-8 mx-auto p-4 py-md-5">
+<div class="row">
+
+  <div class="col-lg-2 mx-auto p-4 py-md-5">
+    <nav id="navbar-side" class="navbar-side sticky-top h-100 flex-column align-items-stretch pe-4 border-end">
+      <nav class="nav nav-pills flex-column">
+        <!-- First Top-Level Item -->
+        <a class="nav-link" href="#EDA">EDA</a>
+        <!-- Second-Level Items -->
+        <nav class="nav flex-column ms-3">
+          <a class="nav-link my-1" href="#scrollspyHeading3">Third</a>
+          <a class="nav-link my-1" href="#scrollspyHeading4">Fourth</a>
+          <a class="nav-link my-1" href="#scrollspyHeading5">Fifth</a>
+        </nav>
+        <!-- Second Top-Level Item -->
+        <a class="nav-link" href="#Diseases">Diseases</a>
+        <nav class="nav flex-column ms-3">
+          <a class="nav-link my-1" href="#item-1-1">Item 1-1</a>
+          <a class="nav-link my-1" href="#item-1-2">Item 1-2</a>
+        </nav>
+        <!-- Third Top-Level Item -->
+        <a class="nav-link" href="#Protein-Classes">Protein Classes</a>
+        <nav class="nav flex-column ms-3">
+          <a class="nav-link my-1" href="#item-3-1">Item 3-1</a>
+          <a class="nav-link my-1" href="#item-3-2">Item 3-2</a>
+        </nav>
+      </nav>
+    </nav>
+  </div>
+
+
+
+
+<div class="col-lg-8 mx-auto p-4 py-md-5" data-bs-spy="scroll" data-bs-target="#navbar-side" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
   <main id="EDA">
 
     <h1 class="text-body-emphasis">EDA</h1>
@@ -100,6 +130,20 @@
     <div class="ratio ratio-1x1">
       <a name="distrib_patent_doi"></a>
       <iframe class="plotly-iframe" src="frontend/figures/distrib_patent_doi.html"></iframe>
+    </div>
+
+    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+
+    <!-- <div class="ratio ratio-1x1">
+      <a name="distributions_2"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/distributions_2.html"></iframe>
+    </div> -->
+
+    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+
+    <div class="ratio ratio-16x9">
+      <a name="overlaps_bk_2"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/overlaps_bk_2.html"></iframe>
     </div>
 
     <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
@@ -255,6 +299,8 @@
   </main>
 </div>
 
+</div>
+
 <div class="col-lg-8 mx-auto p-4 py-md-5">
   <footer class="pt-5 my-5 text-body-secondary border-top">
     Created by the Bootstrap team &middot; &copy; 2024
@@ -265,6 +311,7 @@
 <script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="frontend/assets/parallax.js"></script> -->
+<script src="frontend/assets/navbarHeight.js"></script>
 
     </body>
 </html>
