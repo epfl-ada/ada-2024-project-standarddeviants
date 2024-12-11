@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="Wesley Monteith-Finas">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Standard Deviants</title>
 
@@ -20,26 +20,55 @@
 
 
   </head>
-  <body data-bs-spy="scroll" data-bs-target="custom-navbar" data-bs-offset="50">
+  <body data-bs-spy="scroll" data-bs-target="#custom-navbar" data-bs-offset="0">
 
 <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark" id="custom-navbar">
   <div class="container">
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
       <div class="offcanvas-body">
-        <ul class="navbar-nav flex-grow-1 justify-content-between">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#EDA">EDA</a></li>
-          <li class="nav-item"><a class="nav-link" href="#Diseases">Diseases</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="heroes.html">Support</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+        <a class="navbar-brand col-lg-3 me-0" href="#">Data Story</a>
+        <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#EDA" role="button" aria-expanded="false">EDA</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Diseases" role="button" aria-expanded="false">Diseases</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Protein Classes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+            </ul>
+          </li>
         </ul>
+        <ul class="nav nav-pills flex-grow-1 justify-content-between justify-content-lg-end">
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+        </ul>
+        <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+          <button class="btn btn-primary">Button</button>
+        </div> -->
       </div>
     </div>
   </div>
 </nav>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary vh-100" style="background-image: url('frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
+<div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary vh-100 parallax" style="background-image: url('frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
   <div class="col-md-6 p-lg-5 mx-auto my-5">
     <h1 class="display-3 fw-bold">Mapping the Molecular Path to Health</h1>
     <h3 class="fw-normal text-muted mb-3">A Causal Analysis of Success in Drug Discovery</h3>
@@ -48,9 +77,8 @@
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
 
-<a name="EDA"></a>
 <div class="col-lg-8 mx-auto p-4 py-md-5">
-  <main>
+  <main id="EDA">
 
     <h1 class="text-body-emphasis">EDA</h1>
     <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
@@ -77,10 +105,8 @@
     <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
 
     </main>
-</div>
 
-
-<div class="container px-4 py-5" id="custom-cards">
+<main id="research-questions">
   <h2 class="pb-2 border-bottom">Research Questions</h2>
 
   <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -178,12 +204,10 @@
       </div>
     </div> -->
   </div>
-</div>
+</main>
 
 
-<a name="Diseases"></a>
-<div class="col-lg-8 mx-auto p-4 py-md-5">
-  <main>
+  <main id="Diseases">
     <h1 class="text-body-emphasis">Diseases</h1>
 
     <h2 class="text-body-emphasis">Disease Distribution</h2>
@@ -239,6 +263,8 @@
 
 
 <script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="frontend/assets/parallax.js"></script> -->
 
     </body>
 </html>
