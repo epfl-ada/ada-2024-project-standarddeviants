@@ -28,21 +28,24 @@
         <a class="navbar-brand col-lg-3 me-0" href="#">Data Story</a>
         <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#EDA" role="button" aria-expanded="false">EDA</a>
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Abstract" role="button" aria-expanded="false">Introduction</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+              <li><a class="dropdown-item" href="#Abstract">Abstract</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="#Research Questions">Research Questions</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+              <li><a class="dropdown-item" href="#Data Presentation">Data Presentation</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Diseases" role="button" aria-expanded="false">Diseases</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+              <li><a class="dropdown-item" href="#Diseases">Diseases</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+              <li><a class="dropdown-item" href="#Articles and Patents">Articles and Patents</a></li>
+              <li><a class="dropdown-item" href="#Clinical Trials">Clinical Trials</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="#Disease-Level Conclusions">Disease-Level Conclusions</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -80,26 +83,28 @@
   <div class="col-lg-2 mx-auto p-4 py-md-5">
     <nav id="navbar-side" class="navbar-side sticky-top h-100 flex-column align-items-stretch pe-4 border-end">
       <nav class="nav nav-pills flex-column">
-        <!-- First Top-Level Item -->
-        <a class="nav-link" href="#EDA">EDA</a>
-        <!-- Second-Level Items -->
-        <nav class="nav flex-column ms-3">
-          <a class="nav-link my-1" href="#scrollspyHeading3">Third</a>
-          <a class="nav-link my-1" href="#scrollspyHeading4">Fourth</a>
-          <a class="nav-link my-1" href="#scrollspyHeading5">Fifth</a>
-        </nav>
-        <!-- Second Top-Level Item -->
-        <a class="nav-link" href="#Diseases">Diseases</a>
-        <nav class="nav flex-column ms-3">
-          <a class="nav-link my-1" href="#item-1-1">Item 1-1</a>
-          <a class="nav-link my-1" href="#item-1-2">Item 1-2</a>
-        </nav>
-        <!-- Third Top-Level Item -->
-        <a class="nav-link" href="#Protein-Classes">Protein Classes</a>
-        <nav class="nav flex-column ms-3">
-          <a class="nav-link my-1" href="#item-3-1">Item 3-1</a>
-          <a class="nav-link my-1" href="#item-3-2">Item 3-2</a>
-        </nav>
+        <!-- Introduction Dropdown Equivalent -->
+        <div class="nav-item">
+          <a class="nav-link" href="#Introduction">Introduction</a>
+          <nav class="nav flex-column ms-3">
+            <a class="nav-link my-1" href="#Abstract">Abstract</a>
+            <a class="nav-link my-1" href="#Research Questions">Research Questions</a>
+            <a class="nav-link my-1" href="#Data Presentation">Data Presentation</a>
+          </nav>
+        </div>
+
+        <!-- Diseases Dropdown Equivalent -->
+        <div class="nav-item">
+          <a class="nav-link" href="#Diseases">Diseases</a>
+          <nav class="nav flex-column ms-3">
+            <a class="nav-link my-1" href="#Diseases">Diseases Overview</a>
+            <a class="nav-link my-1" href="#Articles and Patents">Articles and Patents</a>
+            <a class="nav-link my-1" href="#Clinical Trials">Clinical Trials</a>
+            <a class="nav-link my-1" href="#Disease-Level Conclusions">Disease-Level Conclusions</a>
+          </nav>
+        </div>
+
+
       </nav>
     </nav>
   </div>
@@ -108,161 +113,161 @@
 
 
 <div class="col-lg-8 mx-auto p-4 py-md-5" data-bs-spy="scroll" data-bs-target="#navbar-side" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
-  <main id="EDA">
+  <div id="Abstract" class="border-bottom">
+    <h1 class="text-body-emphasis text-center">Abstract</h1>
+    <p class="fs-5">
+      Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can therefore help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery.<br/><br/>
+      In particular, this website will first walk you through different classes of disease, and the corresponding targeted proteins, and how they relate to various indicators of success in academia and industry. Thereafter, we dive deep into the biochemical and molecular features of ligands, and discover how these shape the world of drug discovery.
+    </p>
 
-    <h1 class="text-body-emphasis">EDA</h1>
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+  </div>
 
-    <div class="ratio ratio-16x9">
-      <a name="availability_bk"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/availability_bk.html"></iframe>
+  <div id="Research Questions" class="border-bottom">
+    <h1 class="pb-2 border-top text-center">Research Questions</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-5jMoC6TInq4-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do specific biochemical features of ligands (binding kinetics, structures …) predict their success metrics?</h3>
+            <!-- <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>Earth</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                <small>3d</small>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-6s2oTaFpPE4-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do certain properties like molecular weight, hydrophobicity, or binding affinity have a strong predictive relationship with success metrics?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-ruFBkCruBVk-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Is there a difference in success between competitive and non-competitive ligands?</h3>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-7tgIlnxj2bM-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do biochemical rules of thumb (eg. Lipinski’s rule) correlate with the derived success metrics?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-AcpHs4hIGw8-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do certain protein classes have a causal link to better success rates?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-auxSQi4Achk-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">In relation to disease specific outcomes, how and why are certain protein classes (e.g. GPCRs or kinases) preferentially targeted ? What class-specific molecular features might be favoured?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-iwkcspbMWx8-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Is there a causal relationship between the targeted diseases and success indicators?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-MgGTUHINEPg-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do the success metrics change over time? What external factors may influence these?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-mSfnuqwcQ-Q-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do periods of intensified research activity, in certain protein classes or diseases, lead to higher success rates?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-e2CVJv4RP7k-unsplash.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Does the geographical location and institutional affiliation of research groups have a causal impact on the success rate of drug candidates?</h3>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <div id="Data Presentation" class="border-bottom">
+
+    <h1 class="text-body-emphasis text-center">Data Presentation</h1>
+    <p class="fs-5">
+      Before presenting our answers to all these questions, it is important we become familiar with the data we are using.<br/>
+      It is crucial for all our analyses to know how it is distributed. On top of indicating what analyses should be carried out and how, this even already gives us a first idea of what the world of drug discovery looks like: what do usual binding kinetics look like? What are the typical model organisms? Who is doing the research?
+    </p>
+
+    <div class="ratio ratio-1x1">
+      <a name="distributions"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/distributions.html"></iframe>
     </div>
 
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+    <p class="fs-5">
+      The above figure shows the distribution of each metric. In particular, we first appreciate that most measurements are made at physiological pH (around pH=7), and body temperature. Measures made outside these ranges are expected to be in extreme conditions or very different model organisms. In addition, we observe that all binding kinetics (aside pH and temperature) are adequately distributed on a log-scale. Two particularly important metrics in pharmacology (notably shown by their large frequency in the data), Ki and IC50, show mean values of 10^2 nM and 10^2.5 nM respectively. These values however are suspected to be highly influenced by the targets, diseases, and molecular features of interest, all of which will be thoroughly analysed.
+    </p>
+
+    <p class="fs-5">
+      Other features are thought to influence this data. For example, there is a large variety of organisms one which research is conducted.
+    </p>
 
     <div class="ratio ratio-16x9">
       <a name="availability_lt"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/availability_lt.html"></iframe>
+      <iframe class="plotly-iframe" src="frontend/figures/targetsourcedistrib.html"></iframe>
     </div>
 
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+    <p class="fs-5">
+      Without surprise, H. sapiens is the most frequently targeted organism in research. Thereafter, are the common mice and rat models. The fourth targeted organism however, relates to a single disease: HIV/AIDS. This highlights the importance of this disease class, for which research interest was high, following the 1980s pandemic.
+    </p>
 
-    <div class="ratio ratio-16x9">
-      <a name="distrib_patent_doi"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/distrib_patent_doi.html"></iframe>
-    </div>
+    <p class="fs-5">
+      This leads to very important questions, and perhaps the first in the drug discovery process: how does a targeted disease affect research? Is there a relationship between targeted diseases and success indicators? How may this change over time?
+    </p>
 
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
-
-    <!-- <div class="ratio ratio-16x9">
-      <a name="distributions_2"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/distributions_2.html"></iframe>
-    </div> -->
-
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
-
-    <div class="ratio ratio-16x9">
-      <a name="overlaps_bk"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/overlaps_bk.html"></iframe>
-    </div>
-
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
-
-    <div class="ratio ratio-1x1">
-      <a name="overlaps_lt"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/overlaps_lt.html"></iframe>
-    </div>
-
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
-
-    </main>
-
-<main id="research-questions">
-  <h2 class="pb-2 border-bottom">Research Questions</h2>
-
-  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-5jMoC6TInq4-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do specific biochemical features of ligands (binding kinetics, structures …) predict their success metrics?</h3>
-          <!-- <ul class="d-flex list-unstyled mt-auto">
-            <li class="me-auto">
-              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-            </li>
-            <li class="d-flex align-items-center me-3">
-              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-              <small>Earth</small>
-            </li>
-            <li class="d-flex align-items-center">
-              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-              <small>3d</small>
-            </li>
-          </ul> -->
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-6s2oTaFpPE4-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do certain properties like molecular weight, hydrophobicity, or binding affinity have a strong predictive relationship with success metrics?</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-ruFBkCruBVk-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Is there a difference in success between competitive and non-competitive ligands?</h3>
-        </div>
-      </div>
     </div>
 
 
-    <!-- <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-7tgIlnxj2bM-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do biochemical rules of thumb (eg. Lipinski’s rule) correlate with the derived success metrics?</h3>
-        </div>
-      </div>
-    </div>
+  <div id="Diseases" class="border-bottom">
+    <h1 class="text-body-emphasis text-center">Diseases</h1>
 
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-AcpHs4hIGw8-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do certain protein classes have a causal link to better success rates?</h3>
-        </div>
-      </div>
-    </div>
+    <h3 class="text-body-emphasis">
+      Is there a relationship between the targeted diseases and success indicators?
+    </h3>
 
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-auxSQi4Achk-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">In relation to disease specific outcomes, how and why are certain protein classes (e.g. GPCRs or kinases) preferentially targeted ? What class-specific molecular features might be favoured?</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-iwkcspbMWx8-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Is there a causal relationship between the targeted diseases and success indicators?</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-MgGTUHINEPg-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do the success metrics change over time? What external factors may influence these?</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-mSfnuqwcQ-Q-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Do periods of intensified research activity, in certain protein classes or diseases, lead to higher success rates?</h3>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('frontend/imgs/unsplash_imgs/cdc-e2CVJv4RP7k-unsplash.jpg');">
-        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold fs-2">Does the geographical location and institutional affiliation of research groups have a causal impact on the success rate of drug candidates?</h3>
-        </div>
-      </div>
-    </div> -->
-  </div>
-</main>
-
-
-  <main id="Diseases">
-    <h1 class="text-body-emphasis">Diseases</h1>
-
-    <h2 class="text-body-emphasis">Disease Distribution</h2>
-    <!-- <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p> -->
+    <p class="fs-5">
+      Being up to date with the main data, we can finally discuss the first pillar of success in drug discovery: the targeted disease. Indeed, some disease classes are intuitively more researched than others:
+    </p>
 
     <div class="ratio ratio-16x9">
         <a name="disease_classes"></a>
@@ -270,40 +275,94 @@
     </div>
 
 
+    <p class="fs-5">
+      Still, it remains unclear how this distribution is related to success in drug discovery. To bring an answer to this point, we introduce the first metrics of success: article and patent counts and citations.
+    </p>
 
-    <h2 class="text-body-emphasis">Disease Timeseries</h2>
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
 
-    <div class="ratio ratio-16x9">
-      <a name="diseases_timeseries"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/diseases_timeseries.html"></iframe>
-    </div>
 
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
-
-    <div class="ratio ratio-1x1">
-      <a name="Sankey_Targets_Diseases"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/Sankey_Targets_Diseases.html"></iframe>
-    </div>
-
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+    <h2 class="text-body-emphasis" id="Articles and Patents">Articles and Patents</h2>
+    <p class="fs-5">To gain a more comprehensive understanding of how research focuses on various disease classes, article counts and citation trends are highly relevant as first indicators of interest, influence and importance. First, we show the most important diseases in academia, according to these metrics.
+    </p>
 
     <div class="ratio ratio-16x9">
-      <a name="Citations_per_Target"></a>
-      <iframe class="plotly-iframe" src="frontend/figures/Citations_per_Target.html"></iframe>
+      <a name="Citations_per_Disease"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/Citations_per_Disease.html"></iframe>
     </div>
 
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+    <p class="fs-5">Here, we observe with no great surprise that research on cancer has the most published articles, as well as citations, in drug discovery. Secondly, neurodegeneration sees many published and cited articles, closely followed by dysplasia. Interestingly, dysplasia may sometimes become cancer with time. Thus, the main studied diseases seem to be, as expected, the main diseases affecting our aging society: cancer and neurodegeneration. Others include cardiac issues (QT syndrom), immune problems and inflammation, obesity and diabetes, and other neurological problems such as epilepsy.
+    </p>
+
+    <p class="fs-5">To get a sense of overall importance of a disease class, we introduce a new metric of success, the H-index. The H-index (where H is the number of publications that have above H citations) is a measure of impact, taking into account both the number of publications in a category, as well as how much these are cited. A main advantage of this index is its insensitivity to outlying data. In particular, it is only slightly affected by individual papers which may have obtained great praise, and rather indicates a consistent success. In fact, it summarizes the plots above in one metric.
+    </p>
 
     <div class="ratio ratio-16x9">
       <a name="HIndex_Disease"></a>
       <iframe class="plotly-iframe" src="frontend/figures/HIndex_Disease.html"></iframe>
     </div>
 
-    <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mi odio, pretium molestie efficitur ac, scelerisque nec purus. Curabitur condimentum elit pulvinar neque scelerisque, quis volutpat elit sollicitudin. In hac habitasse platea dictumst. Duis purus risus, malesuada in ante eu, pharetra rutrum felis. Nulla at gravida tellus. In eu libero ac nibh suscipit venenatis nec non magna. Duis ultricies maximus ex ut vulputate. Sed feugiat dolor eu sodales vestibulum. Suspendisse faucibus, lacus ac consectetur hendrerit, mi mi sodales dolor, non blandit ante eros at lacus. Aliquam molestie dictum sapien, ut ullamcorper libero venenatis quis.</p>
+    <p class="fs-5">Doing so, we finally appreciate that, in academia, the most impactful diseases to be studied are indeed cancer, neurodegeneration, dysplasia and immunodeficiency. Interestingly, when looking at the H-index only, cardiac issues seem less impactful, while neurological issues such as epilepsy gain in importance.
+    </p>
+
+    <p class="fs-5">But from these studied diseases, what actually reaches the pharmaceutical industry? In other words, how does this distribution change when looking at patents instead of publications?
+    </p>
+
+    <div class="ratio ratio-16x9">
+      <a name="Patents_Diseases"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/Patents_Diseases.html"></iframe>
+    </div>
+
+    <p class="fs-5">
+      Here again, we observe that cancer has both the highest number of patents and patent citations of all disease classes. Interestingly though, even though it is still the fourth patented disease class,neurodegeneration does not seem to be as important in industry as in academia. Instead, we see a rise in the importance of immunodeficiency, inflammatory-regulating and blood disease drugs, especially notable when classified by the H-index:
+    </p>
+
+    <div class="ratio ratio-16x9">
+      <a name="Patents_HIndex_Diseases"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/Patents_HIndex_Diseases.html"></iframe>
+    </div>
+
+    <h3 class="text-body-emphasis">
+      Do the success metrics change over time? What external factors may influence these?
+not sure which timeseries goes here
+    </h3>
 
 
-  </main>
+    <div class="ratio ratio-16x9">
+      <a name="Patent_Status_Diseases"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/Patent_Status_Diseases.html"></iframe>
+    </div>
+
+    <h2 class="text-body-emphasis" id="Clinical Trials">Clinical Trials</h2>
+
+    <p class="fs-5">
+      For drug discovery, knowing how each of these disease classes perform in academia and industry is important. The main objective however, remains success in clinical trials and patients, shown below.
+    </p>
+
+
+    <h3 class="text-body-emphasis">
+      do we have anything per disease? would be banger-Amelie
+    </h3>
+
+    <h2 class="text-body-emphasis" id="Disease-Level Conclusions">Disease-Level Conclusions</h2>
+
+    <p class="fs-5">
+      In drug discovery, the disease studied seems to heavily affect the reach and impact of the associated research. Influenced by our aging population, we observe an especially high interest in research in cancer, neurodegeneration and neurological conditions, inflammatory and autoimmune diseases, as well as cardiac and blood-related diseases.
+    </p>
+
+    <p class="fs-5">
+      Having looked at the importance of these diseases, we will know investigate the next question in drug discovery, namely how they are related to protein classes, and how these classes shape drug discovery.
+    </p>
+
+    <div class="ratio ratio-1x1">
+      <a name="Sankey_Targets_Diseases"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/Sankey_Targets_Diseases.html"></iframe>
+    </div>
+
+    <p class="fs-5">
+      Indeed, as seen in the previous diagram, the largest protein classes are linked to various diseases. But are certain targeted protein linked to better success rates? What other factors may influence this?
+    </p>
+
+  </div>
 </div>
 
 </div>
