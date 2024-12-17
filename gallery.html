@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
   <head>
-    <!-- <script src="./frontend/assets/js/color-modes.js"></script> -->
+    <!-- <script src="frontend/assets/js/color-modes.js"></script> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="Wesley Monteith-Finas">
     <meta name="generator" content="Hugo 0.122.0">
     <title>Album example · Bootstrap v5.3</title>
 
@@ -16,175 +16,478 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="./frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="./frontend/style/style.css" rel="stylesheet">
+    <link href="frontend/style/style.css" rel="stylesheet">
+    <!-- <link href="frontend/style/carousel.css" rel="stylesheet"> -->
 
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark" id="custom-navbar">
       <div class="container">
-        <!-- <a class="navbar-brand d-md-none" href="#">
-          <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-          Aperture
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-          <!-- <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasLabel">Aperture</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div> -->
           <div class="offcanvas-body">
-            <ul class="navbar-nav flex-grow-1 justify-content-between">
-              <!-- <li class="nav-item"><a class="nav-link" href="#">
-                <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-              </a></li> -->
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="index.html#EDA">EDA</a></li>
-              <li class="nav-item"><a class="nav-link" href="index.html#Diseases">Diseases</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-              <!-- <li class="nav-item"><a class="nav-link" href="#">
-                <svg class="bi" width="24" height="24"><use xlink:href="#cart"/></svg>
-              </a></li> -->
+            <a class="navbar-brand col-lg-3 me-0" href="index.html">Data Story</a>
+            <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#EDA" role="button" aria-expanded="false">EDA</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Diseases" role="button" aria-expanded="false">Diseases</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Protein Classes</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+                </ul>
+              </li>
             </ul>
+            <ul class="nav nav-pills flex-grow-1 justify-content-between justify-content-lg-end">
+              <li class="nav-item active" aria-current="page"><a class="nav-link" href="#">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+            </ul>
+            <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+              <button class="btn btn-primary">Button</button>
+            </div> -->
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div> -->
-
-
-<!-- <header data-bs-theme="dark">
-  <div class="collapse text-bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4>About</h4>
-          <p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4>Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Welcome to the Gallery</h1>
+          <p class="lead text-body-secondary">Browse all of the beautiful plots we made.</p>
+          <p>
+            <a href="index.html" class="btn btn-primary my-2">Go back to Data Story</a>
+            <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+          </p>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-</header> -->
+    </section>
 
 <main>
-
-  <section class="py-5 text-center container" style="background-image: url('./frontend/imgs/proteins.png'); background-size: cover; background-position: center;">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
-        <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-        <p>
-          <a href="index.html" class="btn btn-primary my-2">Go back to Home</a>
-          <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-        </p>
-      </div>
-    </div>
-  </section>
-
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+
+
+
         <div class="col">
           <div class="card shadow-sm">
-            <img src="./frontend/figures/diseases_timeseries.svg" class="img-fluid" alt="...">
+            <img src="frontend/figures/HIndex_Target.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a class="btn btn-sm btn-outline-primary" href="index.html#diseases_timeseries">View in Data Story</a>
-                  <a class="btn btn-sm btn-outline-secondary" href="./frontend/figures/diseases_timeseries.html">View</a>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#HIndex_Target">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/HIndex_Target.html">View in fullscreen</a>
                 </div>
                 <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card shadow-sm">
-            <img src="./frontend/figures/disease_classes.svg" class="img-fluid" alt="...">
+            <img src="frontend/figures/availability_bk.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#availability_bk">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/availability_bk.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Patents_Citations_Target.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Patents_Citations_Target">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Patents_Citations_Target.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Patent_Status_Diseases.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Patent_Status_Diseases">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Patent_Status_Diseases.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/pairplot.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#pairplot">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/pairplot.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/availability_lt.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#availability_lt">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/availability_lt.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/metadata.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#metadata">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/metadata.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Timeseries_Citations_Diseases.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Timeseries_Citations_Diseases">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Timeseries_Citations_Diseases.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/RET_PCA_3D_institution_anim.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_3D_institution_anim">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_3D_institution_anim.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Citations_per_Disease.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Citations_per_Disease">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Citations_per_Disease.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Lipinski.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Lipinski">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Lipinski.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/TargetClasses.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#TargetClasses">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/TargetClasses.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/RET_PCA_2D_years.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_2D_years">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_2D_years.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/distributions.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#distributions">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/distributions.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/RET_PCA_2D_inst_anim.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_2D_inst_anim">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_2D_inst_anim.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Patents_HIndex_Target.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Patents_HIndex_Target">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Patents_HIndex_Target.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/distrib_patent_doi.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#distrib_patent_doi">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/distrib_patent_doi.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Patents_HIndex_Diseases.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Patents_HIndex_Diseases">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Patents_HIndex_Diseases.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/institutions.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#institutions">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/institutions.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/overlaps_lt.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#overlaps_lt">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/overlaps_lt.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/HIndex_Disease.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#HIndex_Disease">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/HIndex_Disease.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/RET_PCA_3D_institution_lines_anim.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_3D_institution_lines_anim">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_3D_institution_lines_anim.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/overlaps_bk.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#overlaps_bk">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/overlaps_bk.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/disease_classes.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a class="btn btn-sm btn-outline-primary" href="index.html#disease_classes">View in Data Story</a>
-                  <a class="btn btn-sm btn-outline-secondary" href="./frontend/figures/disease_classes.html">View</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/disease_classes.html">View in fullscreen</a>
                 </div>
                 <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="frontend/figures/Patent_Status_Target.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Patent_Status_Target">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Patent_Status_Target.html">View in fullscreen</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
@@ -192,45 +495,15 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="frontend/figures/Citations_per_Target.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Citations_per_Target">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Citations_per_Target.html">View in fullscreen</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
@@ -238,49 +511,136 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="frontend/figures/RET_PCA_3D_logIC50_anim.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_3D_logIC50_anim">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_3D_logIC50_anim.html">View in fullscreen</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="frontend/figures/targetsourcedistrib.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#targetsourcedistrib">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/targetsourcedistrib.html">View in fullscreen</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="frontend/figures/Patents_Diseases.svg" class="img-fluid" alt="...">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Patents_Diseases">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Patents_Diseases.html">View in fullscreen</a>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
               </div>
             </div>
           </div>
         </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/RET_PCA_3D_logIC50.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_3D_logIC50">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_3D_logIC50.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/diseases_timeseries.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#diseases_timeseries">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/diseases_timeseries.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/Sankey_Targets_Diseases.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#Sankey_Targets_Diseases">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/Sankey_Targets_Diseases.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/RET_PCA_2D_logIC50_anim.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#RET_PCA_2D_logIC50_anim">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/RET_PCA_2D_logIC50_anim.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="frontend/figures/test.svg" class="img-fluid" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-primary" href="index.html#test">View in Data Story</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="frontend/figures/test.html">View in fullscreen</a>
+                </div>
+                <!-- <small class="text-body-secondary">9 mins</small> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
       </div>
     </div>
   </div>
@@ -296,7 +656,7 @@
     <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>
-<script src="./frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
 </html>
