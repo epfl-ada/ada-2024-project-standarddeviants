@@ -176,6 +176,7 @@ def sort_diseases(disease_name: str) -> str:
         'Cleft palate': ['cleft palate'],
         'Brachyolmia': ['brachyolmia'],
         'Congenital lipomatous overgrowth': ['congenital lipomatous overgrowth'],
+        'Cholestasis': ['cholestasis'],
     }
 
     endswith_mapping = {"Cancer": ["oma"]}
