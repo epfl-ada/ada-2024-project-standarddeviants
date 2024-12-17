@@ -74,3 +74,27 @@
   .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
     }
+
+
+    .sticky-top {
+      top: 0;
+      z-index: 1020; /* Ensure it appears above other content */
+    }
+
+    .navbar-side {
+      max-height: 100vh; /* Prevent sidebar from exceeding viewport */
+      overflow-y: auto; /* Enable scrolling for long content */
+    }
+
+
+
+    #navbar-side {
+      top: var(--navbar-height, 0); /* Use the custom property for dynamic height */
+      position: sticky;
+      height: calc(100vh - var(--navbar-height, 0)); /* Dynamically calculate height */
+      overflow-y: auto;
+    }
+
+    #custom-navbar {
+      z-index: 1030;
+    }
