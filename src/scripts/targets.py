@@ -1,5 +1,12 @@
 from src.utils import utils
-
+from src.scripts.disease_plotting import (
+    load_uniprotid_diseases,
+    quantify_missing_diseases,
+    add_keywords_when_comments_missing,
+    sort_diseases,
+)
+from src.scripts import targets
+import ast
 
 def get_taxon_id(species_name):
     """
@@ -172,3 +179,34 @@ def get_target_class(names_df):
     }
     mapper = lambda x: utils.group_categories(x, in_mapping=mapping)
     return get_names(names_df).dropna().astype(str).apply(mapper)
+
+
+def join_targets_and_diseases(df):
+    """Creates a dataframe that maps target and disease classes.
+
+    Args:
+        df (pd.DataFrame): BindingDB dataframe.
+
+    Returns:
+        pd.DataFrame: contains a column "Target Classes" with target classes and "Disease Classes" with corresponding disease classes.
+    """
+    diseases = load_uniprotid_diseases()
+    ids_missing_diseases, percentage_missing = quantify_missing_diseases(diseases)
+    diseases_df = add_keywords_when_comments_missing(diseases)
+    diseases_df = diseases_df.rename(columns={"comments_bfill": "diseases"})
+    diseases_df = diseases_df.dropna(subset="diseases").drop(
+        columns=["comments", "keywords"]
+    )
+    diseases_df["Disease Classes"] = diseases_df["diseases"].apply(
+        lambda l: [sort_diseases(l_i) for l_i in l]
+    )
+    diseases_df = diseases_df[['UniProt (SwissProt) Primary ID of Target Chain', 'Disease Classes']]
+    diseases_df['Disease Classes'] = diseases_df['Disease Classes'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else x)
+    diseases_df['Disease Classes'] = diseases_df['Disease Classes'].apply(lambda x: [disease for disease in x if disease != "Disease variant"] if isinstance(x, list) else x)
+    mapped_names = targets.get_target_class(names_df=df)
+    merged = df.merge(mapped_names, left_index=True, right_index=True)
+    merged= merged[['UniProt (SwissProt) Recommended Name of Target Chain_y', 'UniProt (SwissProt) Primary ID of Target Chain']]
+    diseases_target_df = diseases_df.merge(merged, on='UniProt (SwissProt) Primary ID of Target Chain')
+    diseases_target_df = diseases_target_df.rename(columns={'UniProt (SwissProt) Recommended Name of Target Chain_y': 'Target Classes'})
+    diseases_target_df = diseases_target_df.groupby('Target Classes')['Disease Classes'].apply(lambda x: list(set([disease for sublist in x for disease in sublist]))).reset_index()
+    return diseases_target_df
