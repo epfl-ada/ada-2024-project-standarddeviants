@@ -1,5 +1,6 @@
 from typing import Dict, List, Optional
 
+import numpy as np
 import pandas as pd
 from thefuzz import fuzz, process
 from tqdm import tqdm
@@ -123,3 +124,28 @@ def count_classified_rows(df: pd.DataFrame) -> int:
 
     # Return the number of classified rows
     return classified_count.sum()
+
+
+def collinear_cols(data, threshold=0.9):
+    """
+    Removes collinear features from a dataset based on a correlation threshold.
+
+    Args:
+        data (pd.DataFrame): The dataset with numerical features.
+        threshold (float): The correlation threshold to identify collinearity.
+
+    Returns:
+        pd.DataFrame: Dataset with collinear features removed.
+        list: List of removed features.
+    """
+    # Compute the correlation matrix
+    corr_matrix = data.corr().abs()
+
+    # Select the upper triangle of the correlation matrix
+    upper_tri = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(bool))
+
+    # Find features with correlation above threshold
+    to_drop = [
+        column for column in upper_tri.columns if any(upper_tri[column] > threshold)
+    ]
+    return to_drop
