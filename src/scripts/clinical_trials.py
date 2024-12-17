@@ -155,3 +155,76 @@ if __name__ == "__main__":
     ids = df["ZINC ID of Ligand"].value_counts().index
 
     get_zinc_clinical_trial_data_for_all_ids(ids, data_path)
+
+
+
+def combine_trials_json(paths:list):
+    """Combine all json files from run_clinical_trials.py to have a complete dataframe.
+
+    Args:
+        paths (list): list with the paths to each json file.
+
+    Returns:
+        pd.DataFrame: combined dataframe containing all the data from the JSON files.
+    """
+    dataframes = []
+    for path in paths:
+        df = pd.read_json(path).T 
+        df = df.rename(columns={"references": "trials"}) 
+        dataframes.append(df)
+    combined_df = pd.concat(dataframes, axis=0, ignore_index=True)
+    combined_df = combined_df.dropna(subset=['trials'])
+    combined_df = combined_df[combined_df['trials'].apply(lambda x: x != [])]
+    combined_df['ZINC ID of Ligand'] = combined_df.index
+    combined_df = combined_df.reset_index(drop=True)
+    exploded_df = combined_df.explode('trials')
+    exploded_df = exploded_df.reset_index(drop=True)
+    normalized_df = pd.json_normalize(exploded_df['trials'])
+    final_df = pd.concat([exploded_df.drop(columns='trials'), normalized_df], axis=1)
+    return final_df
+
+
+def classify_disease(description):
+    """Looks into a description text and finds the corresponding disease (from top 20 diseases in BindingDB).
+
+    Args:
+        description (str): description text of a clinical trial.
+
+    Returns:
+        str: the disease or "Unclassified" if the disease is not in the list.
+    """
+    disease_classes = {
+    "Cancer": ["leukemia", "oncogene", "hemangioma", "glioma", "tumor", "melanoma", "cancer"],
+    "Immunodeficiency" : ['immunodeficiency'],
+    "Dysplasia" : ["dysplasia"],
+    "Epilepsy":['epileptic', 'epilepsy', 'seizures'],
+    "Neurodegeneration": ["parkinson", "alzheimer", "basal ganglia calcification", "tremor", "neurodegeneration"],
+    "Neoplasia" : ['neoplasia'],
+    "Agammaglobulinemia" : ['agammaglobulinemia'],
+    'Noonan syndrome': ['noonan syndrome'],
+    "QT syndrome": ['qt syndrome'],
+    "Diabetes": ["diabetes"],
+    "Obesity": ["obesity"],
+    "Autoinflammation":['autoinflammation'],
+    "Hirschsprung Disease": ["hirschsprung disease"],
+    "Inflammatory skin and bowel disease": ["inflammatory skin and bowel disease"],
+    "Thrombocythemia": ["thrombocythemia"],
+    "Deafness": ['deafness'],
+    "Polycythemia vera": ['polycythemia vera'],
+    "Budd-Chiari syndrome": ["budd-chiari syndrome"],
+    "Myelofibrosis": ["myelofibrosis"],
+    "Cornelia de Lange syndrome": ["cornelia de lange syndrome"],
+    "AIDS": ["aids", "vih"],
+    }
+    if not isinstance(description, str):
+        return "Unclassified"
+    description = description.lower()
+    
+    if any(word.endswith("oma") for word in description.split()):
+        return "Cancer"
+    
+    for disease_class, keywords in disease_classes.items():
+        if any(keyword in description for keyword in keywords):
+            return disease_class
+    
+    return "Unclassified" 
