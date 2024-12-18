@@ -9,9 +9,11 @@ from src.scripts import smiles
 from src.utils.utils import group_categories
 
 
-def filter_RET(smiles_df: pd.DataFrame, uniprot_id: str = "P07949") -> pd.DataFrame:
+def filter_RET(
+    smiles_df: pd.DataFrame, uniprot_ids: list[str] = ["P07949"]
+) -> pd.DataFrame:
     return smiles_df[
-        smiles_df["UniProt (SwissProt) Primary ID of Target Chain"] == uniprot_id
+        smiles_df["UniProt (SwissProt) Primary ID of Target Chain"].isin(uniprot_ids)
     ]
 
 
