@@ -48,13 +48,24 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Diseases" role="button" aria-expanded="false">Protein Classes</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Target Protein" role="button" aria-expanded="false">Target Protein</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Protein Classes</a></li>
+            <li><a class="dropdown-item" href="#Target Protein">Target Protein</a></li>
             <li><hr class="dropdown-divider"></li>
-            <!-- <li><a class="dropdown-item" href="#Articles and Patents">Articles and Patents</a></li>
-            <li><a class="dropdown-item" href="#Clinical Trials">Clinical Trials</a></li>
-            <li><a class="dropdown-item" href="#Disease-Level Conclusions">Disease-Level Conclusions</a></li> -->
+            <li><a class="dropdown-item" href="#Articles and Patents Target Protein">Articles and Patents</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Molecular Features" role="button" aria-expanded="false">Molecular Features</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#Molecular Features">Molecular Features</a></li>
+            <li><a class="dropdown-item" href="#Fingerprints">Fingerprints</a></li>
+            <li><a class="dropdown-item" href="#RET & D2R">RET & D2R</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#Research Strategy">Research Strategy</a></li>
+            <li><a class="dropdown-item" href="#Overlayed with Success Metrics">Overlayed with Success Metrics</a></li>
+            <li><a class="dropdown-item" href="#Explainable Machine Learning">Explainable Machine Learning</a></li>
+            <li><a class="dropdown-item" href="#Finding Success Clusters">Finding Success Clusters</a></li>
           </ul>
         </li>
       </ul>
@@ -80,31 +91,6 @@
 
   <div class="row">
 
-    <!-- <div class="col-lg-2 mx-auto p-1 py-md-5 border-end"> -->
-      <!-- <nav id="navbar-side" class="navbar-side sticky-top h-100 flex-column align-items-stretch pe-4 border-end">
-        <nav class="nav nav-pills flex-column">
-          <div class="nav-item">
-            <a class="nav-link">Introduction</a>
-            <nav class="nav flex-column ms-3">
-              <a class="nav-link my-1" href="#Abstract">Abstract</a>
-              <a class="nav-link my-1" href="#Research Questions">Research Questions</a>
-              <a class="nav-link my-1" href="#Data Presentation">Data Presentation</a>
-            </nav>
-          </div>
-          <div class="nav-item">
-            <a class="nav-link" href="#Diseases">Diseases</a>
-            <nav class="nav flex-column ms-3">
-              <a class="nav-link my-1" href="#Articles and Patents">Articles and Patents</a>
-              <a class="nav-link my-1" href="#Clinical Trials">Clinical Trials</a>
-              <a class="nav-link my-1" href="#Disease-Level Conclusions">Disease-Level Conclusions</a>
-            </nav>
-          </div>
-
-
-        </nav>
-      </nav> -->
-    <!-- </div> -->
-
 
 
 
@@ -112,10 +98,10 @@
     <!-- <div class="col-lg-8"> -->
     <!-- <div class="col-lg-8 mx-auto p-4 py-md-5"> -->
     <!-- <div class="col-lg p-4 py-md-5"> -->
-    <div class="col-lg-10 mx-auto p-4 py-md-5">
+    <div class="col-lg-12 mx-auto p-5 py-md-5">
 
       <!-- data-bs-spy="scroll" data-bs-target="#navbar-side" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0" -->
-      <div id="Abstract" class="border-bottom">
+      <div id="Abstract" class="border-bottom pb-2">
         <h1 class="text-body-emphasis text-center">Abstract</h1>
         <p class="fs-5">
           Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can therefore help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery.<br/><br/>
@@ -124,10 +110,10 @@
 
       </div>
 
-      <div class="b-example-divider"></div>
+      <!-- <div class="b-example-divider p-0"></div> -->
 
-      <div id="Research Questions" class="border-bottom">
-        <h1 class="pb-2 border-top text-center">Research Questions</h2>
+      <div id="Research Questions" class="border-bottom py-md-5">
+        <h1 class="pb-2 text-center">Research Questions</h2>
 
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
           <div class="col">
@@ -226,11 +212,11 @@
         </div>
       </div>
 
-      <div id="Data Presentation" class="border-bottom">
-        <div class="ratio ratio-16x9">
+      <div id="Data Presentation" class="border-bottom pt-5">
+        <!-- <div class="ratio ratio-16x9">
           <a name=""></a>
           <iframe class="plotly-iframe" src="tests/mol.html"></iframe>
-        </div>
+        </div> -->
 
         <h1 class="text-body-emphasis text-center">Data Presentation</h1>
         <p class="fs-5">
@@ -238,9 +224,9 @@
           It is crucial for all our analyses to know how it is distributed. On top of indicating what analyses should be carried out and how, this even already gives us a first idea of what the world of drug discovery looks like: what do usual binding kinetics look like? What are the typical model organisms? Who is doing the research?
         </p>
 
-        <div class="ratio ratio-1x1">
+        <div class="ratio ratio-16x9">
           <a name="distributions"></a>
-          <iframe class="plotly-iframe" src="frontend/figures/distributions.html"></iframe>
+          <iframe class="plotly-iframe" src="frontend/figures/data_story/distributions.html"></iframe>
         </div>
 
         <p class="fs-5">
@@ -250,11 +236,6 @@
         <p class="fs-5">
           Other features are thought to influence this data. For example, there is a large variety of organisms one which research is conducted.
         </p>
-
-        <div class="ratio ratio-16x9">
-          <a name="availability_lt"></a>
-          <iframe class="plotly-iframe" src="frontend/figures/targetsourcedistrib.html"></iframe>
-        </div>
 
         <p class="fs-5">
           Without surprise, H. sapiens is the most frequently targeted organism in research. Thereafter, are the common mice and rat models. The fourth targeted organism however, relates to a single disease: HIV/AIDS. This highlights the importance of this disease class, for which research interest was high, following the 1980s pandemic.
@@ -267,121 +248,175 @@
       </div>
 
 
-      <div class="border-bottom">
-        <div id="Diseases">
-          <h1 class="text-body-emphasis text-center">Diseases</h1>
+      <div id="Diseases" class="row border-bottom">
+        <div class="row py-md-5">
+          <div class="col-lg-3">
+            <div class = "sticky-lg-top" style="top:70px;">
+              <h1 class="text-body-emphasis text-center">Diseases</h1>
+              <div class="card card-cover text-bg-dark rounded-4"
+                  style="background-image: url('frontend/imgs/unsplash_imgs/cdc-6s2oTaFpPE4-unsplash.jpg');">
+                <div class="d-flex flex-column h-50 p-3 text-white text-shadow-1">
+                  <p class="lh-sm fw-bold fs-2">Is there a relationship between the targeted diseases and success indicators?</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <h3 class="text-body-emphasis">
-            Is there a relationship between the targeted diseases and success indicators?
-          </h3>
+          <div class="col-lg-9">
+            <h1 class="text-body-emphasis text-center">Diseases</h1>
 
-          <p class="fs-5">
-            Being up to date with the main data, we can finally discuss the first pillar of success in drug discovery: the targeted disease. Indeed, some disease classes are intuitively more researched than others:
-          </p>
+            <p class="fs-5">
+              Being up to date with the main data, we can finally discuss the first pillar of success in drug discovery: the targeted disease. Indeed, some disease classes are intuitively more researched than others:
+            </p>
 
-          <div class="ratio ratio-16x9">
+            <div class="ratio ratio-16x9">
               <a name="disease_classes"></a>
-              <iframe class="plotly-iframe" src="frontend/figures/disease_classes.html"></iframe>
+              <iframe class="plotly-iframe" src="frontend/figures/data_story/disease_classes.html"></iframe>
+            </div>
+            <div class="ratio ratio-16x9">
+              <a name="diseases_timeseries"></a>
+              <iframe class="plotly-iframe" src="frontend/figures/data_story/diseases_timeseries.html"></iframe>
+            </div>
+
+
+
+
+
+            <p class="fs-5">
+              Still, it remains unclear how this distribution is related to success in drug discovery. To bring an answer to this point, we introduce the first metrics of success: article and patent counts and citations.
+            </p>
+            <div id="Articles and Patents">
+              <h2 class="text-body-emphasis">Articles and Patents</h2>
+              <p class="fs-5">To gain a more comprehensive understanding of how research focuses on various disease classes, article counts and citation trends are highly relevant as first indicators of interest, influence and importance. First, we show the most important diseases in academia, according to these metrics.
+              </p>
+
+              <div class="row row-cols-2">
+                <div class="col">
+                  <div class="ratio ratio-4x3">
+                    <a name="Citations_per_Disease"></a>
+                    <iframe class="plotly-iframe" src="frontend/figures/data_story/Citations_per_Disease.html"></iframe>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="ratio ratio-4x3">
+                    <a name="HIndex_Disease"></a>
+                    <iframe class="plotly-iframe" src="frontend/figures/data_story/HIndex_Disease.html"></iframe>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="ratio ratio-4x3">
+                    <a name="Patents_Diseases"></a>
+                    <iframe class="plotly-iframe" src="frontend/figures/data_story/Patents_Diseases.html"></iframe>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="ratio ratio-4x3">
+                    <a name="Patents_HIndex_Diseases"></a>
+                    <iframe class="plotly-iframe" src="frontend/figures/data_story/Patents_HIndex_Diseases.html"></iframe>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+              <p class="fs-5">Here, we observe with no great surprise that research on cancer has the most published articles, as well as citations, in drug discovery. Secondly, neurodegeneration sees many published and cited articles, closely followed by dysplasia. Interestingly, dysplasia may sometimes become cancer with time. Thus, the main studied diseases seem to be, as expected, the main diseases affecting our aging society: cancer and neurodegeneration. Others include cardiac issues (QT syndrom), immune problems and inflammation, obesity and diabetes, and other neurological problems such as epilepsy.
+              </p>
+
+              <p class="fs-5">To get a sense of overall importance of a disease class, we introduce a new metric of success, the H-index. The H-index (where H is the number of publications that have above H citations) is a measure of impact, taking into account both the number of publications in a category, as well as how much these are cited. A main advantage of this index is its insensitivity to outlying data. In particular, it is only slightly affected by individual papers which may have obtained great praise, and rather indicates a consistent success. In fact, it summarizes the plots above in one metric.
+              </p>
+
+              <p class="fs-5">Doing so, we finally appreciate that, in academia, the most impactful diseases to be studied are indeed cancer, neurodegeneration, dysplasia and immunodeficiency. Interestingly, when looking at the H-index only, cardiac issues seem less impactful, while neurological issues such as epilepsy gain in importance.
+              </p>
+
+              <p class="fs-5">But from these studied diseases, what actually reaches the pharmaceutical industry? In other words, how does this distribution change when looking at patents instead of publications?
+              </p>
+
+              <p class="fs-5">
+                Here again, we observe that cancer has both the highest number of patents and patent citations of all disease classes. Interestingly though, even though it is still the fourth patented disease class,neurodegeneration does not seem to be as important in industry as in academia. Instead, we see a rise in the importance of immunodeficiency, inflammatory-regulating and blood disease drugs, especially notable when classified by the H-index:
+              </p>
+            </div>
+
+
+
+
           </div>
+        </div>
+        <div class="row py-md-5">
+          <div class="col-lg-3">
+            <div class = "sticky-lg-top" style="top:70px;">
+              <!-- <h1 class="text-body-emphasis text-center">Diseases</h1> -->
+              <div class="card card-cover text-bg-dark rounded-4"
+                  style="background-image: url('frontend/imgs/unsplash_imgs/cdc-5jMoC6TInq4-unsplash.jpg');">
+                <div class="d-flex flex-column h-50 p-3 text-white text-shadow-1">
+                  <p class="lh-sm fw-bold fs-2">Do the success metrics change over time? What external factors may influence these? not sure which timeseries goes here</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-9">
+            <div id="Clinical Trials">
+              <h2 class="text-body-emphasis">Clinical Trials</h2>
+
+              <p class="fs-5">
+                For drug discovery, knowing how each of these disease classes perform in academia and industry is important. The main objective however, remains success in clinical trials and patients, shown below.
+              </p>
 
 
-          <p class="fs-5">
-            Still, it remains unclear how this distribution is related to success in drug discovery. To bring an answer to this point, we introduce the first metrics of success: article and patent counts and citations.
-          </p>
+              <h3 class="text-body-emphasis">
+                do we have anything per disease? would be banger-Amelie
+              </h3>
+
+            </div>
+
+            <!-- <div class="row row-cols-2"> -->
+              <div class="col">
+                <div class="ratio ratio-21x9">
+                  <a name="Timeseries_completed_trials"></a>
+                  <iframe class="plotly-iframe" src="frontend/figures/data_story/Timeseries_completed_trials.html"></iframe>
+                </div>
+              </div>
+              <div class="col">
+                <div class="ratio ratio-21x9">
+                  <a name="Timeseries_trials"></a>
+                  <iframe class="plotly-iframe" src="frontend/figures/data_story/Timeseries_trials.html"></iframe>
+                </div>
+              </div>
+
+            <!-- </div> -->
+            <div id="Disease-Level Conclusions">
+              <h2 class="text-body-emphasis">Disease-Level Conclusions</h2>
+
+              <p class="fs-5">
+                In drug discovery, the disease studied seems to heavily affect the reach and impact of the associated research. Influenced by our aging population, we observe an especially high interest in research in cancer, neurodegeneration and neurological conditions, inflammatory and autoimmune diseases, as well as cardiac and blood-related diseases.
+              </p>
+
+              <p class="fs-5">
+                Having looked at the importance of these diseases, we will know investigate the next question in drug discovery, namely how they are related to protein classes, and how these classes shape drug discovery.
+              </p>
+
+              <div class="ratio ratio-1x1">
+                <a name="Sankey_Targets_Diseases"></a>
+                <iframe class="plotly-iframe" src="frontend/figures/data_story/Sankey_Targets_Diseases.html"></iframe>
+              </div>
+
+              <p class="fs-5">
+                Indeed, as seen in the previous diagram, the largest protein classes are linked to various diseases. But are certain targeted protein linked to better success rates? What other factors may influence this?
+              </p>
+
+            </div>
+
+
+
+
+          </div>
 
         </div>
 
-        <div id="Articles and Patents">
-          <h2 class="text-body-emphasis">Articles and Patents</h2>
-          <p class="fs-5">To gain a more comprehensive understanding of how research focuses on various disease classes, article counts and citation trends are highly relevant as first indicators of interest, influence and importance. First, we show the most important diseases in academia, according to these metrics.
-          </p>
-
-          <div class="ratio ratio-16x9">
-            <a name="Citations_per_Disease"></a>
-            <iframe class="plotly-iframe" src="frontend/figures/Citations_per_Disease.html"></iframe>
-          </div>
-
-          <p class="fs-5">Here, we observe with no great surprise that research on cancer has the most published articles, as well as citations, in drug discovery. Secondly, neurodegeneration sees many published and cited articles, closely followed by dysplasia. Interestingly, dysplasia may sometimes become cancer with time. Thus, the main studied diseases seem to be, as expected, the main diseases affecting our aging society: cancer and neurodegeneration. Others include cardiac issues (QT syndrom), immune problems and inflammation, obesity and diabetes, and other neurological problems such as epilepsy.
-          </p>
-
-          <p class="fs-5">To get a sense of overall importance of a disease class, we introduce a new metric of success, the H-index. The H-index (where H is the number of publications that have above H citations) is a measure of impact, taking into account both the number of publications in a category, as well as how much these are cited. A main advantage of this index is its insensitivity to outlying data. In particular, it is only slightly affected by individual papers which may have obtained great praise, and rather indicates a consistent success. In fact, it summarizes the plots above in one metric.
-          </p>
-
-          <div class="ratio ratio-16x9">
-            <a name="HIndex_Disease"></a>
-            <iframe class="plotly-iframe" src="frontend/figures/HIndex_Disease.html"></iframe>
-          </div>
-
-          <p class="fs-5">Doing so, we finally appreciate that, in academia, the most impactful diseases to be studied are indeed cancer, neurodegeneration, dysplasia and immunodeficiency. Interestingly, when looking at the H-index only, cardiac issues seem less impactful, while neurological issues such as epilepsy gain in importance.
-          </p>
-
-          <p class="fs-5">But from these studied diseases, what actually reaches the pharmaceutical industry? In other words, how does this distribution change when looking at patents instead of publications?
-          </p>
-
-          <div class="ratio ratio-16x9">
-            <a name="Patents_Diseases"></a>
-            <iframe class="plotly-iframe" src="frontend/figures/Patents_Diseases.html"></iframe>
-          </div>
-
-          <p class="fs-5">
-            Here again, we observe that cancer has both the highest number of patents and patent citations of all disease classes. Interestingly though, even though it is still the fourth patented disease class,neurodegeneration does not seem to be as important in industry as in academia. Instead, we see a rise in the importance of immunodeficiency, inflammatory-regulating and blood disease drugs, especially notable when classified by the H-index:
-          </p>
-
-          <div class="ratio ratio-16x9">
-            <a name="Patents_HIndex_Diseases"></a>
-            <iframe class="plotly-iframe" src="frontend/figures/Patents_HIndex_Diseases.html"></iframe>
-          </div>
-
-          <h3 class="text-body-emphasis">
-            Do the success metrics change over time? What external factors may influence these?
-            not sure which timeseries goes here
-          </h3>
 
 
-          <div class="ratio ratio-16x9">
-            <a name="Patent_Status_Diseases"></a>
-            <iframe class="plotly-iframe" src="frontend/figures/Patent_Status_Diseases.html"></iframe>
-          </div>
-
-        </div>
-
-
-        <div id="Clinical Trials">
-          <h2 class="text-body-emphasis">Clinical Trials</h2>
-
-          <p class="fs-5">
-            For drug discovery, knowing how each of these disease classes perform in academia and industry is important. The main objective however, remains success in clinical trials and patients, shown below.
-          </p>
-
-
-          <h3 class="text-body-emphasis">
-            do we have anything per disease? would be banger-Amelie
-          </h3>
-
-        </div>
-
-
-        <div id="Disease-Level Conclusions">
-          <h2 class="text-body-emphasis">Disease-Level Conclusions</h2>
-
-          <p class="fs-5">
-            In drug discovery, the disease studied seems to heavily affect the reach and impact of the associated research. Influenced by our aging population, we observe an especially high interest in research in cancer, neurodegeneration and neurological conditions, inflammatory and autoimmune diseases, as well as cardiac and blood-related diseases.
-          </p>
-
-          <p class="fs-5">
-            Having looked at the importance of these diseases, we will know investigate the next question in drug discovery, namely how they are related to protein classes, and how these classes shape drug discovery.
-          </p>
-
-          <div class="ratio ratio-1x1">
-            <a name="Sankey_Targets_Diseases"></a>
-            <iframe class="plotly-iframe" src="frontend/figures/Sankey_Targets_Diseases.html"></iframe>
-          </div>
-
-          <p class="fs-5">
-            Indeed, as seen in the previous diagram, the largest protein classes are linked to various diseases. But are certain targeted protein linked to better success rates? What other factors may influence this?
-          </p>
-
-        </div>
 
 
       </div>
