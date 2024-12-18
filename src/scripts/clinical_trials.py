@@ -172,7 +172,7 @@ def combine_trials_json(paths:list):
         df = pd.read_json(path).T 
         df = df.rename(columns={"references": "trials"}) 
         dataframes.append(df)
-    combined_df = pd.concat(dataframes, axis=0, ignore_index=True)
+    combined_df = pd.concat(dataframes, axis=0)
     combined_df = combined_df.dropna(subset=['trials'])
     combined_df = combined_df[combined_df['trials'].apply(lambda x: x != [])]
     combined_df['ZINC ID of Ligand'] = combined_df.index
@@ -228,3 +228,22 @@ def classify_disease(description):
             return disease_class
     
     return "Unclassified" 
+
+
+def filter_completed_trials(row):
+    """Keeps only clinical trials with a 'Completed' status.
+
+    Args:
+        row (pd.Series): A row from a Pandas DataFrame, expected to contain the following keys: 'disease_class', 'status_name','description','phase_name', 'start_date'.
+
+    Returns:
+        dict: contains the information of only the clinical trials with a 'Completed' status. 
+    """
+    completed_trials = [i for i, status in enumerate(row['status_name']) if status == 'Completed']
+    return {
+        'disease_class': row['disease_class'],
+        'status_name': [row['status_name'][i] for i in completed_trials],
+        'description': [row['description'][i] for i in completed_trials],
+        'phase_name': [row['phase_name'][i] for i in completed_trials],
+        'start_date': [row['start_date'][i] for i in completed_trials]
+    }
