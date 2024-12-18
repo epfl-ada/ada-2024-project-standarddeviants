@@ -12,6 +12,7 @@ def save_plotly(
     fig.update_layout(
         plot_bgcolor=f"rgb({rgb_bgcolor[0]}, {rgb_bgcolor[1]}, {rgb_bgcolor[2]})",
         paper_bgcolor=f"rgb({rgb_bgcolor[0]}, {rgb_bgcolor[1]}, {rgb_bgcolor[2]})",
+        template="plotly_dark",
     )
 
     custom_style = f"""
