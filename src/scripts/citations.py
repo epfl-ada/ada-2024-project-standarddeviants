@@ -211,6 +211,55 @@ def calculate_patent_H_index_targets(targets_citations_df):
             )
     return target_h_index_df
 
+def get_citations_per_year_diseases(disease_citations_df, citations_dict):
+    """Get the total number of citations per year for each disease class.
+
+    Args:
+        disease_citations_df (DataFrame): should contain the list of corresponding article DOIs as "Article DOI" for each disease class ("Disease Classes").
+        citations_dict (Dictionnary): for each article doi "doi" has the corresponding citation count "citation".
+
+    Returns:
+        DataFrame: contains the total number of citations per year for each disease class.
+    """
+    doi_metadata = pd.read_csv("src/data/metadata.csv").dropna()
+    doi_year_dict = dict(zip(doi_metadata["Article DOI"], doi_metadata["year"]))
+    disease_years = []
+    for index, row in disease_citations_df.iterrows():
+        disease_class = row["Disease Classes"]
+        dois = row["Article DOI"]
+        years = []
+        citations_count = []
+        for doi in dois:
+            year = doi_year_dict.get(doi)
+            citation_count = citations_dict.get(doi, 0)
+            if year is not None:
+                years.append(year)
+                citations_count.append(citation_count)
+            disease_years.append(
+                {
+                    "Disease Classes": disease_class,
+                    "Publication Years": years,
+                    "Citations": citations_count,
+                }
+            )
+    disease_years_df = pd.DataFrame(disease_years)
+    disease_years_df = disease_years_df.drop_duplicates(subset="Disease Classes")
+    diseases_top_10 = disease_years_df.head(10)
+    disease_years_expanded = []
+    for _, row in diseases_top_10.iterrows():
+        disease_class = row["Disease Classes"]
+        years = row["Publication Years"]
+        citations = row["Citations"]
+        for year, citation in zip(years, citations):
+            disease_years_expanded.append(
+                {"Year": year, "Disease Classes": disease_class, "Citations": citation}
+            )
+    expanded_df = pd.DataFrame(disease_years_expanded)
+    aggregated_df = expanded_df.groupby(["Year", "Disease Classes"], as_index=False)[
+        "Citations"
+    ].sum()
+    return aggregated_df
+
 
 def timeseries_citations_diseases(citations_dict:dict, disease_dois:pd.DataFrame):
     """Creates a dataframe containing all the citations and year of publication for each article of a disease class.
@@ -220,7 +269,7 @@ def timeseries_citations_diseases(citations_dict:dict, disease_dois:pd.DataFrame
         disease_dois (pd.DataFrame): contains the disease class and the list of corresponding article DOIs.
 
     Returns:
-        _type_: _description_
+        pd.DataFrame: contains all the citations and year of publication for each article of a disease class.
     """
     doi_metadata = pd.read_csv("../src/data/metadata.csv").dropna()
     doi_year_dict = dict(zip(doi_metadata["Article DOI"], doi_metadata["year"]))
@@ -246,7 +295,6 @@ def timeseries_citations_diseases(citations_dict:dict, disease_dois:pd.DataFrame
     disease_years_df = pd.DataFrame(disease_years)
     disease_years_df = disease_years_df.drop_duplicates(subset="Disease Classes")
     return disease_years_df
-
 
 def get_patent_info(patent_number):
     """
