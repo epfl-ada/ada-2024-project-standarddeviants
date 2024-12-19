@@ -45,7 +45,7 @@ def cheng_prusoff_classifier(
     metric: Literal["abs", "square"] = "square",
     show_evaluation: bool = True,
 ):
-    """On the basis of binding kinetics offered by the Cheng-Prusoff equation, creates a linear classifier seperating data by mechanism of action.
+    """On the basis of binding kinetics offered by the Cheng-Prusoff equation, creates a linear classifier seperating data by binding kinetics.
 
     Args:
         df (pd.DataFrame): dataframe containing the prepared log_Ki and log_IC50 (see cheng_prusoff_data)
@@ -194,15 +194,15 @@ def classified_h_index(df_cit: pd.DataFrame):
     For more complex dataframe types, see src.scripts.citations.calculate_H_index
 
     Args:
-        df_cit (pd.DataFrame): column1=class of element, named "mechanism"; column2=citation count of element, named "citation"
+        df_cit (pd.DataFrame): column1=class of element, named "cluster"; column2=citation count of element, named "citation"
 
     Returns:
         dict: contains h-index of each class
     """
-    classes = df_cit["mechanism"].unique()
+    classes = df_cit["cluster"].unique()
     h_per_class = {}
     for c in classes:
-        temp = df_cit.query("mechanism==@c")
+        temp = df_cit.query("cluster==@c")
         h = sum(
             x >= i + 1 for i, x in enumerate(sorted(temp["citation"], reverse=True))
         )
