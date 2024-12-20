@@ -141,6 +141,18 @@ def kmeans_selection(data, range):
     return scores
 
 def prepare_pca(smiles_df, phase_4_count_df, citations_path, patents_path, uniprot_ids=["P07949","P14416"]):
+    """Prepare data for PCA to overlay with success metrics, by filtering UniprotIDs and merging with citations and patents.
+
+    Args:
+        smiles_df (pd.DataFrame): BindingDB dataframe containing the following columns: "UniProt (SwissProt) Primary ID of Target Chain","Ligand SMILES","IC50 (nM)","Article DOI","Institution","Patent Number","ZINC ID of Ligand".
+        phase_4_count_df (pd.DataFrame): contains the phase 4 and completed clinical trials per disease.
+        citations_path (str): path to the citations.json file.
+        patents_path (str): path to the patents.json file.
+        uniprot_ids (list, str): List of UniprotIDs of interest. Defaults to ["P07949","P14416"].
+
+    Returns:
+        list: with two pd.DataFrame (result and targets).
+    """
     targets = timeseries_anim.filter_uniprotID(smiles_df, uniprot_ids=uniprot_ids)
     targets = targets.drop_duplicates(subset=["Ligand SMILES"])
     targets = merge_citations_with_targets(targets, citations_path)
@@ -166,6 +178,15 @@ def prepare_pca(smiles_df, phase_4_count_df, citations_path, patents_path, unipr
     return [result,targets]
 
 def kmeans_selection(data, range):
+    """Select the optimal number of clusters for KMeans by calculating silhouette scores and SSE for different k values.
+
+    Args:
+        data (pd.DataFrame): input data that will be used for clustering.
+        range (iterable): integers representing the number of clusters to test.
+
+    Returns:
+        list: a list of dictionaries, each containing the k (number of clusters), corresponding silhouette score and sse.
+    """
     scores = []
     for k in range:
         kmeans = KMeans(n_clusters=k, random_state=10).fit(data[["PC1", "PC2", "PC3"]])
@@ -174,8 +195,15 @@ def kmeans_selection(data, range):
         scores.append({"k": k, "silhouette_score": score, "sse": kmeans.inertia_})
     return scores
 
-
 def cluster_representatives(result_with_kmeans: pd.DataFrame):
+    """Find the representative points for each cluster based on median value of the "log(IC50+1) (nM)" column.
+
+    Args:
+        result_with_kmeans (pd.DataFrame): contains cluster assignments and IC50.
+
+    Returns:
+        pd.DataFrame: contains the representative point for each cluster, sorted by log(IC50+1) values.
+    """
     representatives = []
     for cluster in result_with_kmeans["cluster"].unique():
         cluster_results = result_with_kmeans.query(f"cluster == '{cluster}'").dropna(
@@ -185,8 +213,15 @@ def cluster_representatives(result_with_kmeans: pd.DataFrame):
         representatives.append(cluster_results.iloc[len(cluster_results) // 2])
     return pd.DataFrame(representatives).sort_values("log(IC50+1) (nM)")
 
-
 def get_representative_descriptors(representatives: pd.DataFrame):
+    """Calculate molecular descriptors for each compound in the 'Ligand SMILES' column.
+
+    Args:
+        representatives (pd.DataFrame): input dataframe containing the 'Ligand SMILES' column.
+
+    Returns:
+        pd.DataFrame: contains the original data along with the calculated molecular descriptors.
+    """
     tqdm.pandas()
 
     descriptors = representatives["Ligand SMILES"].progress_apply(
