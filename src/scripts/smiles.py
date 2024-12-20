@@ -2,11 +2,21 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import py3Dmol
 
 # plotting tools
 import seaborn as sns
 from rdkit import Chem
-from rdkit.Chem import AllChem, DataStructs, Descriptors, Draw
+from rdkit.Chem import AllChem, DataStructs, Descriptors, Draw, rdCoordGen
+from rdkit.Chem.Draw import IPythonConsole
+
+
+def molecule_to_3d(molecule):
+    mol = Chem.Mol(molecule)
+    mol = AllChem.AddHs(mol, addCoords=True)
+    AllChem.EmbedMolecule(mol)
+    AllChem.MMFFOptimizeMolecule(mol)
+    return mol
 
 
 def get_Ki(df):
@@ -515,3 +525,24 @@ def lipinski(smiles: str, verbose=False) -> bool:
         print(f"LogP: {logp:.2f} (<= 5)")
         print(f"Respects Lipinski's Rule of Five: {respects_rules}")
     return respects_rules
+
+
+# 3D stuff
+def draw3D(smiles, outpath=None, display=False):
+    mol = Chem.MolFromSmiles(smiles)
+    rdCoordGen.AddCoords(mol)
+    mol = AllChem.AddHs(mol, addCoords=True)
+    AllChem.EmbedMolecule(mol)
+    AllChem.MMFFOptimizeMolecule(mol)
+
+    view = py3Dmol.view(
+        data=Chem.MolToMolBlock(mol),  # Convert the RDKit molecule for py3Dmol
+        style={"stick": {}, "sphere": {"scale": 0.3}},
+    )
+    view.setBackgroundColor("#222529")
+    if display:
+        view.zoomTo()
+        view.show()
+    if outpath is not None:
+        view.write_html(f=outpath, fullpage=True)
+    return view.write_html(f=outpath, fullpage=True)
