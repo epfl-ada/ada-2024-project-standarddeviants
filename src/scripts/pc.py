@@ -34,7 +34,6 @@ def merge_citations_with_targets(targets, citations_path="../src/data/citations.
         .dropna(subset=["Ligand SMILES"])
         .drop(columns=["Article DOI"])
     )
-
     return merged_df
 
 
