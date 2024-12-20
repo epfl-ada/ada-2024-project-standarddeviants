@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Wesley Monteith-Finas">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Heroes · Bootstrap v5.3</title>
+    <title>Standard Deviants</title>
+    <link rel="icon" type="image/x-icon" href="frontend/imgs/favicon.ico">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/heroes/">
 
@@ -17,6 +18,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <link href="frontend/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <link href="frontend/style/style.css" rel="stylesheet">
 
@@ -28,44 +31,54 @@
 
     <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark" id="custom-navbar">
       <div class="container">
-            <a class="navbar-brand col-lg-3 me-0" href="index.html">Data Story</a>
-            <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.htmlEDA" role="button" aria-expanded="false">EDA</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="index.htmlscrollspyHeading3">Third</a></li>
-                  <li><a class="dropdown-item" href="index.htmlscrollspyHeading4">Fourth</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="index.htmlscrollspyHeading5">Fifth</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.htmlDiseases" role="button" aria-expanded="false">Diseases</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="index.htmlscrollspyHeading3">Third</a></li>
-                  <li><a class="dropdown-item" href="index.htmlscrollspyHeading4">Fourth</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="index.htmlscrollspyHeading5">Fifth</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Protein Classes</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
-                  <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
-                </ul>
-              </li>
+        <a class="navbar-brand col-lg-3 me-0" href="index.html#">Data Story</a>
+        <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.html#Introduction" role="button" aria-expanded="false">Introduction</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#Introduction">Introduction</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html">Research Questions</a></li>
+              <li><a class="dropdown-item" href="index.html#Data Presentation">Data Presentation</a></li>
             </ul>
-            <ul class="nav nav-pills flex-grow-1 justify-content-between justify-content-lg-end">
-              <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-              <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.html#Diseases" role="button" aria-expanded="false">Diseases</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#Diseases">Diseases</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html#Articles and Patents">Articles and Patents</a></li>
+              <li><a class="dropdown-item" href="index.html#Clinical Trials">Clinical Trials</a></li>
+              <li><a class="dropdown-item" href="index.html#Disease-Level Conclusions">Disease-Level Conclusions</a></li>
             </ul>
-            <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-              <button class="btn btn-primary">Button</button>
-            </div> -->
-          </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.html#Target Protein" role="button" aria-expanded="false">Target Protein</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#Target Protein">Target Protein</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html#Articles and Patents Target Protein">Articles and Patents</a></li>
+              <li><a class="dropdown-item" href="index.html#Target Protein-Level Conclusions">Target Protein-Level Conclusions</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.html#Molecular Features" role="button" aria-expanded="false">Molecular Features</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#Molecular Features">Molecular Features</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html#Fingerprints">Fingerprints, RET & D2R</a></li>
+              <li><a class="dropdown-item" href="index.html#Research Strategy">Research Strategy</a></li>
+              <li><a class="dropdown-item" href="index.html#Finding Successful Structures">Finding Successful Structures</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html#Final Conclusion">Final Conclusion</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav nav-pills flex-grow-1 justify-content-between justify-content-lg-end">
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+        </ul>
+      </div>
     </nav>
 
 <main>
@@ -107,40 +120,39 @@
 
   <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
     <div class="col">
-      <div class="ratio ratio-1x1">
+      <div class="ratio" style="--bs-aspect-ratio: 70%;">
         <a name="availability_bk"></a>
         <iframe class="plotly-iframe" src="frontend/figures/availability/availability_bk.html"></iframe>
       </div>
     </div>
 
     <div class="col">
-      <div class="ratio ratio-1x1">
+      <div class="ratio" style="--bs-aspect-ratio: 70%;">
         <a name="overlaps_bk"></a>
         <iframe class="plotly-iframe" src="frontend/figures/availability/overlaps_bk.html"></iframe>
       </div>
     </div>
 
-    <div class="col">
-      <div class="ratio ratio-1x1">
-        <a name="availability_lt"></a>
-        <iframe class="plotly-iframe" src="frontend/figures/availability/availability_lt.html"></iframe>
-      </div>
-    </div>
 
-    <div class="col">
-      <div class="ratio ratio-1x1">
-        <a name="overlaps_lt"></a>
-        <iframe class="plotly-iframe" src="frontend/figures/availability/overlaps_lt.html"></iframe>
-      </div>
-    </div>
+  </div>
 
-    <div class="col">
-      <div class="ratio ratio-1x1">
-        <a name="metadata"></a>
-        <iframe class="plotly-iframe" src="frontend/figures/availability/metadata.html"></iframe>
-      </div>
+  <div class="col">
+    <div class="ratio" style="--bs-aspect-ratio: 45%;">
+      <a name="availability_lt"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/availability/availability_lt.html"></iframe>
     </div>
   </div>
+
+  <div class="col">
+    <div class="ratio" style="--bs-aspect-ratio: 35%;">
+      <a name="metadata"></a>
+      <iframe class="plotly-iframe" src="frontend/figures/availability/metadata.html"></iframe>
+    </div>
+  </div>
+
+
+
+
 
   <div class="b-example-divider"></div>
 
@@ -223,7 +235,7 @@
     </div>
   </div>
 
-  <div class="b-example-divider"></div>
+  <!-- <div class="b-example-divider"></div>
 
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -244,9 +256,9 @@
     </div>
   </div>
 
-  <div class="b-example-divider"></div>
+  <div class="b-example-divider"></div> -->
 
-  <div class="container col-xxl-8 px-4 py-5">
+  <!-- <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         <img src="frontend/imgs/medicaid.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
@@ -263,7 +275,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="b-example-divider"></div>
 
@@ -287,26 +299,80 @@
 
 
 
-  <!-- <div class="b-example-divider"></div> -->
-
-
-  <!-- <div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Medicaid</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+  <div class="col mx-auto p-4 py-md-5">
+    <footer class="pt-5 my-5 text-body-secondary border-top">
+      <div class="container text-center">
+        <p>Created by the StandardDeviants Team &middot; &copy; 2024</p>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3 d-flex flex-column align-items-center">
+              <span>Wesley Monteith-Finas</span>
+              <div>
+                <a href="https://www.linkedin.com/in/wesley-monteith-959bab237/" target="_blank" class="me-2">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://github.com/wesleymth" target="_blank">
+                  <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 d-flex flex-column align-items-center">
+              <span>Gregor Dederichs</span>
+              <div>
+                <a href="https://www.linkedin.com/in/gregordederichs/" target="_blank" class="me-2">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://github.com/gdederichs" target="_blank">
+                  <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 d-flex flex-column align-items-center">
+              <span>Amélie Thoet</span>
+              <div>
+                <a href="https://www.linkedin.com/in/am%C3%A9lie-thonet/" target="_blank" class="me-2">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://github.com/amelietn" target="_blank">
+                  <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 d-flex flex-column align-items-center">
+              <span>Guillaume Belissent</span>
+              <div>
+                <a href="https://www.linkedin.com/in/guillaume-b-0a889913a/" target="_blank" class="me-2">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://github.com/gbelis" target="_blank">
+                  <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3 d-flex flex-column align-items-center">
+              <span>Daphné de Quatrebarbes</span>
+              <div>
+                <a href="https://www.linkedin.com/in/daphnedequatrebarbes/" target="_blank" class="me-2">
+                  <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://github.com/daphnedequatrebarbes" target="_blank">
+                  <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3" src="frontend/imgs/medicaid.png" alt="" width="720">
-      </div>
-    </div>
+    </footer>
   </div>
-
-  <div class="b-example-divider"></div> -->
 
 </main>
 <script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
