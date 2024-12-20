@@ -19,6 +19,7 @@
     <link href="frontend/style/features.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="frontend/imgs/favicon.ico">
 
   </head>
 <!-- <body data-bs-spy="scroll" data-bs-target="#navbar-side" data-bs-offset="0"> -->
@@ -29,12 +30,11 @@
       <a class="navbar-brand col-lg-3 me-0" href="#">Data Story</a>
       <ul class="nav nav-pills flex-grow-1 justify-content-between nav-justified">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Abstract" role="button" aria-expanded="false">Introduction</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#Introduction" role="button" aria-expanded="false">Introduction</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#Abstract">Abstract</a></li>
-            <!-- <li><hr class="dropdown-divider"></li> -->
-            <li><a class="dropdown-item" href="#Research Questions">Research Questions</a></li>
+            <li><a class="dropdown-item" href="#Introduction">Introduction</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#Research Questions">Research Questions</a></li>
             <li><a class="dropdown-item" href="#Data Presentation">Data Presentation</a></li>
           </ul>
         </li>
@@ -45,7 +45,6 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#Articles and Patents">Articles and Patents</a></li>
             <li><a class="dropdown-item" href="#Clinical Trials">Clinical Trials</a></li>
-            <!-- <li><hr class="dropdown-divider"></li> -->
             <li><a class="dropdown-item" href="#Disease-Level Conclusions">Disease-Level Conclusions</a></li>
           </ul>
         </li>
@@ -55,6 +54,7 @@
             <li><a class="dropdown-item" href="#Target Protein">Target Protein</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#Articles and Patents Target Protein">Articles and Patents</a></li>
+            <li><a class="dropdown-item" href="#Target Protein-Level Conclusions">Target Protein-Level Conclusions</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -65,6 +65,8 @@
             <li><a class="dropdown-item" href="#Fingerprints">Fingerprints, RET & D2R</a></li>
             <li><a class="dropdown-item" href="#Research Strategy">Research Strategy</a></li>
             <li><a class="dropdown-item" href="#Finding Successful Structures">Finding Successful Structures</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#Final Conclusion">Final Conclusion</a></li>
           </ul>
         </li>
       </ul>
@@ -72,9 +74,6 @@
         <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
       </ul>
-      <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-        <button class="btn btn-primary">Button</button>
-      </div> -->
     </div>
   </nav>
 
@@ -95,9 +94,9 @@
     <!-- <div class="col-lg-8"> -->
     <!-- <div class="col-lg-8 mx-auto p-4 py-md-5"> -->
     <!-- <div class="col-lg p-4 py-md-5"> -->
-    <div class="col-lg-12 mx-auto p-5 py-md-5" id="Abstract">
+    <div class="col-lg-12 mx-auto p-5 py-md-5" id="Introduction">
       <div class="px-4 text-center border-bottom">
-        <h1 class="display-4 fw-bold text-body-emphasis">Abstract</h1>
+        <h1 class="display-4 fw-bold text-body-emphasis">Introduction</h1>
         <div class="col-lg-9 mx-auto">
           <p class="lead mb-4">
             Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can therefore help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery.<br/>
@@ -424,7 +423,7 @@
 
             </div>
 
-            <div id="Conclusion Target Protein" class="row">
+            <div id="Target Protein-Level Conclusions" class="row">
               <h2 class="text-body-emphasis pt-5">Conclusions for Target Classes</h2>
               <p class="fs-5">
                 As for diseases, distinct target classes have highly different influences and reach in drug discovery. Unsurprisingly, the main targets are linked to biological pathways of the most influential diseases found earlier. By looking at differences between academia and industry, we are able hypothesise what might be emerging targets in drug discovery.
@@ -593,15 +592,15 @@
               <p class="fs-5">
               </p>
               <div class="row">
-                <div class="col-6">
+                <div class="col-7">
                   <div class="ratio" style="--bs-aspect-ratio: 70%;">
                     <a name="kmeans_RET"></a>
                     <iframe class="plotly-iframe" src="frontend/figures/data_story/kmeans_RET.html"></iframe>
                   </div>
                 </div>
 
-                <div class="col-6">
-                  <div class="ratio" style="--bs-aspect-ratio: 70%;">
+                <div class="col-5">
+                  <div class="ratio" style="--bs-aspect-ratio: 100%;">
                     <a name="boxplot_RET_ligand_cluster"></a>
                     <iframe class="plotly-iframe" src="frontend/figures/data_story/boxplot_RET_ligand_cluster.html"></iframe>
                   </div>
@@ -682,10 +681,11 @@
 
       </div>
 
-      <div id="Conclusion" class="row pt-3">
+      <div id="Final Conclusion" class="px-4 text-center pt-3">
         <h1 class="display-4 fw-bold text-body-emphasis text-center pb-3">Final Conclusions</h1>
         <p class="fs-5">
-          Throughout this analysis we have travelled from disease to molecules. This finally allows us to map the molecular path to health. In particular, we have shown how distinct structural and chemical features, such as higher molecular weights, higher maximum absolute partial charges, and lower number of aliphatic carbocycles increase the efficacy of drugs. In practice, this is achieved by branching out and exploring the structural space by large screenings of slight modifications to an initial academic publication. This then brings new patents, new features and potentially future clinical trials, although these are lengthy in time. At a higher level, although historically established targets, such as CDKs, RTKs and growth factor receptors are still highly influential, there exist emerging targets, like neurotransmitter and hormone receptors. Globally, this analysis maps the current state of drug discovery, focusing on health issues of the 21st century, such as cancer, immunodeficiency, inflammation and neurodegeneration.
+          Throughout this analysis we have travelled from disease to molecules. This finally allows us to map the molecular path to health. In particular, we have shown how distinct structural and chemical features, such as higher molecular weights, higher maximum absolute partial charges, and lower number of aliphatic carbocycles increase the efficacy of drugs. In practice, this is achieved by branching out and exploring the structural space by large screenings of slight modifications to an initial academic publication. This then brings new patents, new features and potentially future clinical trials, although these are lengthy in time. <br/><br/>
+          At a higher level, although historically established targets, such as CDKs, RTKs and growth factor receptors are still highly influential, there exist emerging targets, like neurotransmitter and hormone receptors. Globally, this analysis maps the current state of drug discovery, focusing on health issues of the 21st century, such as cancer, immunodeficiency, inflammation and neurodegeneration.
         </p>
 
 
@@ -774,7 +774,7 @@
 
   <script src="frontend/assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="frontend/assets/parallax.js"></script>
+  <!-- <script src="frontend/assets/parallax.js"></script> -->
   <script src="frontend/assets/navbarHeight.js"></script>
 
 </body>
