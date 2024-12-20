@@ -1,0 +1,51 @@
+<html>
+<body style="margin: 0; padding: 0; display: block;">
+<div id="3dmolviewer_1734697993536614"  style="position: relative; width: 100%; height: 100vh;">
+        <p id="3dmolwarning_1734697993536614" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js');
+}
+
+var viewer_1734697993536614 = null;
+var warn = document.getElementById("3dmolwarning_1734697993536614");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1734697993536614 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1734697993536614"),{backgroundColor:"white"});
+viewer_1734697993536614.addModel("\n     RDKit          3D\n\n 45 48  0  0  0  0  0  0  0  0999 V2000\n   -5.5180   -0.0768   -0.0011 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.1727    0.5962   -0.3475 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.0523    1.8433    0.5592 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.2076    1.0497   -1.8188 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.0022   -0.2842   -0.1530 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7705    0.2905   -0.0485 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9270   -0.7530    0.1020 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5175   -0.5458    0.2991 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2653   -1.4570    0.6536 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.8944    0.7474    0.0359 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1766    1.2275    0.0416 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.3768    0.5784    0.4035 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.3769    1.4922    0.1591 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7377    2.6165   -0.2738 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4014    2.4839   -0.3522 N   0  0  0  0  0  0  0  0  0  0  0  0\n    5.7874    1.3717    0.3090 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.8015    1.9938   -0.4010 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.0304    1.4979    0.1039 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.7013    0.6249    1.1094 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.3534    0.5320    1.2315 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.6124   -1.9911    0.0259 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2931   -3.3560    0.0539 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0087   -3.8510    0.1634 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.2929   -4.2537   -0.0493 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.5496   -3.8007   -0.2022 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.9651   -2.5256   -0.2659 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.9461   -1.6559   -0.1403 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.7701   -0.8795   -0.7047 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.3425    0.6409   -0.0527 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.5049   -0.4926    1.0133 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.9734    1.5567    1.6104 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.1703    2.4447    0.3164 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.9228    2.5012    0.4498 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.0592    1.7100   -2.0086 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2933    1.5939   -2.0858 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.2866    0.1930   -2.4978 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.1745    1.4008   -0.2559 H   0  0  0  0  0  0  0  0  0  0  0  0\n    3.5110   -0.4306    0.7644 H   0  0  0  0  0  0  0  0  0  0  0  0\n    4.1466    3.5104   -0.5228 H   0  0  0  0  0  0  0  0  0  0  0  0\n    6.6755    2.6953   -1.2156 H   0  0  0  0  0  0  0  0  0  0  0  0\n    9.0278    1.7474   -0.2270 H   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2727    0.0065    1.7868 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7018   -3.2150    0.5163 H   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0315   -4.8167    0.4607 H   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.3206   -4.5615   -0.2844 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  2  3  1  0\n  2  4  1  0\n  2  5  1  0\n  5  6  1  0\n  6  7  2  0\n  7  8  1  0\n  8  9  2  0\n  8 10  1  0\n 10 11  1  0\n 11 12  1  0\n 12 13  2  0\n 13 14  1  0\n 14 15  1  0\n 13 16  1  0\n 16 17  2  0\n 17 18  1  0\n 18 19  2  0\n 19 20  1  0\n  7 21  1  0\n 21 22  2  0\n 22 23  1  0\n 22 24  1  0\n 24 25  2  0\n 25 26  1  0\n 26 27  2  0\n 27  5  1  0\n 15 11  2  0\n 20 16  1  0\n 27 21  1  0\n  1 28  1  0\n  1 29  1  0\n  1 30  1  0\n  3 31  1  0\n  3 32  1  0\n  3 33  1  0\n  4 34  1  0\n  4 35  1  0\n  4 36  1  0\n 10 37  1  0\n 12 38  1  0\n 14 39  1  0\n 17 40  1  0\n 18 41  1  0\n 19 42  1  0\n 23 43  1  0\n 23 44  1  0\n 25 45  1  0\nM  END\n");
+viewer_1734697993536614.setStyle({"stick": {}, "sphere": {"scale": 0.3}});
+viewer_1734697993536614.zoomTo();
+	viewer_1734697993536614.setBackgroundColor("#222529");
+	viewer_1734697993536614.zoomTo();
+viewer_1734697993536614.render();
+});
+</script>
+</body>
+</html>
