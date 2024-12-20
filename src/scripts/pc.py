@@ -4,6 +4,9 @@ import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+from src.scripts import timeseries_anim
+from src.scripts import smiles
+from tqdm.notebook import tqdm
 
 
 def merge_citations_with_targets(targets, citations_path="../src/data/citations.json"):
@@ -136,3 +139,100 @@ def kmeans_selection(data, range):
         score = silhouette_score(data[["PC1", "PC2", "PC3"]], labels)
         scores.append({"k": k, "silhouette_score": score, "sse": kmeans.inertia_})
     return scores
+
+def prepare_pca(smiles_df, phase_4_count_df, citations_path, patents_path, uniprot_ids=["P07949","P14416"]):
+    """Prepare data for PCA to overlay with success metrics, by filtering UniprotIDs and merging with citations and patents.
+
+    Args:
+        smiles_df (pd.DataFrame): BindingDB dataframe containing the following columns: "UniProt (SwissProt) Primary ID of Target Chain","Ligand SMILES","IC50 (nM)","Article DOI","Institution","Patent Number","ZINC ID of Ligand".
+        phase_4_count_df (pd.DataFrame): contains the phase 4 and completed clinical trials per disease.
+        citations_path (str): path to the citations.json file.
+        patents_path (str): path to the patents.json file.
+        uniprot_ids (list, str): List of UniprotIDs of interest. Defaults to ["P07949","P14416"].
+
+    Returns:
+        list: with two pd.DataFrame (result and targets).
+    """
+    targets = timeseries_anim.filter_uniprotID(smiles_df, uniprot_ids=uniprot_ids)
+    targets = targets.drop_duplicates(subset=["Ligand SMILES"])
+    targets = merge_citations_with_targets(targets, citations_path)
+    targets = process_and_merge_patents(targets, patents_path)
+    targets = pd.merge(
+        left=targets,
+        right=phase_4_count_df,
+        left_on="ZINC ID of Ligand",
+        right_on="ZINC ID of Ligand",
+        how="outer",
+    ).dropna(subset="Ligand SMILES")
+    targets = clean_and_transform_IC50(targets, IC50_column="IC50 (nM)")
+    targets = timeseries_anim.get_ligands_fingerprint(targets)
+    store = []
+    for target in targets["UniProt (SwissProt) Primary ID of Target Chain"].unique():
+        temp = targets[
+            targets["UniProt (SwissProt) Primary ID of Target Chain"] == target
+        ].copy()
+        temp, _, _ = timeseries_anim.PCA_fingerprints(temp)
+        store.append(temp)
+    result = pd.concat(store, ignore_index=True)
+    result = result.drop_duplicates(subset=["Ligand SMILES"])
+    return [result,targets]
+
+def kmeans_selection(data, range):
+    """Select the optimal number of clusters for KMeans by calculating silhouette scores and SSE for different k values.
+
+    Args:
+        data (pd.DataFrame): input data that will be used for clustering.
+        range (iterable): integers representing the number of clusters to test.
+
+    Returns:
+        list: a list of dictionaries, each containing the k (number of clusters), corresponding silhouette score and sse.
+    """
+    scores = []
+    for k in range:
+        kmeans = KMeans(n_clusters=k, random_state=10).fit(data[["PC1", "PC2", "PC3"]])
+        labels = kmeans.predict(data[["PC1", "PC2", "PC3"]])
+        score = silhouette_score(data[["PC1", "PC2", "PC3"]], labels)
+        scores.append({"k": k, "silhouette_score": score, "sse": kmeans.inertia_})
+    return scores
+
+def cluster_representatives(result_with_kmeans: pd.DataFrame):
+    """Find the representative points for each cluster based on median value of the "log(IC50+1) (nM)" column.
+
+    Args:
+        result_with_kmeans (pd.DataFrame): contains cluster assignments and IC50.
+
+    Returns:
+        pd.DataFrame: contains the representative point for each cluster, sorted by log(IC50+1) values.
+    """
+    representatives = []
+    for cluster in result_with_kmeans["cluster"].unique():
+        cluster_results = result_with_kmeans.query(f"cluster == '{cluster}'").dropna(
+            subset=["log(IC50+1) (nM)"]
+        )
+        cluster_results = cluster_results.sort_values("log(IC50+1) (nM)")
+        representatives.append(cluster_results.iloc[len(cluster_results) // 2])
+    return pd.DataFrame(representatives).sort_values("log(IC50+1) (nM)")
+
+def get_representative_descriptors(representatives: pd.DataFrame):
+    """Calculate molecular descriptors for each compound in the 'Ligand SMILES' column.
+
+    Args:
+        representatives (pd.DataFrame): input dataframe containing the 'Ligand SMILES' column.
+
+    Returns:
+        pd.DataFrame: contains the original data along with the calculated molecular descriptors.
+    """
+    tqdm.pandas()
+
+    descriptors = representatives["Ligand SMILES"].progress_apply(
+        smiles.get_MolDescriptors
+    )
+    isdict = lambda x: isinstance(x, dict)
+    descriptors_df = pd.DataFrame(
+        descriptors[descriptors.apply(isdict)].to_list(),
+        index=descriptors[descriptors.apply(isdict)].index,
+    )
+    representatives_with_descriptors = pd.concat(
+        [representatives, descriptors_df], axis=1
+    )
+    return representatives_with_descriptors

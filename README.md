@@ -1,9 +1,11 @@
-# Mapping the Molecular Path to Health: *An analysis of success in drug discovery*
+# [Mapping the Molecular Path to Health: *An analysis of success in drug discovery*](https://epfl-ada.github.io/ada-2024-project-standarddeviants/)
 
 
 ## Abstract
 Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can therefore help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery. In particular, we show how distinct structural and chemical features, such as higher molecular weights, higher maximum absolute partial charges, and lower number of aliphatic carbocycles increase the efficacy of drugs. In practice, this is achieved by branching out and exploring the structural space by large screenings of slight modifications to an initial academic publication. This then brings new patents, new features and potentially future clinical trials, although these are lengthy in time. At a higher level, although historically established targets, such as CDKs, RTKs and growth factor receptors are still highly influential, there exist emerging targets, like neurotransmitter and hormone receptors. Globally, this analysis maps the current state of drug discovery, focusing on health issues of the 21st century, such as cancer, immunodeficiency, inflammation and neurodegeneration.
 
+## Full Analysis
+The detailed analysis is available on [our website](https://epfl-ada.github.io/ada-2024-project-standarddeviants/), with further details, derivations and supplementary material [here](/results.ipynb).
 
 ## Research Questions
 To guide the research above, we answer three distinct research questions, all focused on success metrics derived from citations, patents, prescriptions, and clinical trials. Sub-questions help in formulating answers to this research.
