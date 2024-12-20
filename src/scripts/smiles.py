@@ -12,6 +12,15 @@ from rdkit.Chem.Draw import IPythonConsole
 
 
 def molecule_to_3d(molecule):
+    """
+    Converts a 2D molecule to a 3D with H
+
+    Args:
+        molecule: RDKit molecule
+
+    Returns:
+        RDKit Mol: A 3D-optimized RDKit molecule object with hydrogens added.
+    """
     mol = Chem.Mol(molecule)
     mol = AllChem.AddHs(mol, addCoords=True)
     AllChem.EmbedMolecule(mol)

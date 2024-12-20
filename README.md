@@ -1,31 +1,27 @@
-# Mapping the Molecular Path to Health: *A causal analysis of success in drug discovery*
+# Mapping the Molecular Path to Health: *An analysis of success in drug discovery*
+
 
 ## Abstract
-Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery.
+Drug discovery is a decade-long process which often fails before clinical application or approval. Understanding its mechanisms can therefore help avoid this failure and lean towards success. For this reason, we propose an analysis on the molecular, chemical and disease-related indicators for success in drug discovery. In particular, we show how distinct structural and chemical features, such as higher molecular weights, higher maximum absolute partial charges, and lower number of aliphatic carbocycles increase the efficacy of drugs. In practice, this is achieved by branching out and exploring the structural space by large screenings of slight modifications to an initial academic publication. This then brings new patents, new features and potentially future clinical trials, although these are lengthy in time. At a higher level, although historically established targets, such as CDKs, RTKs and growth factor receptors are still highly influential, there exist emerging targets, like neurotransmitter and hormone receptors. Globally, this analysis maps the current state of drug discovery, focusing on health issues of the 21st century, such as cancer, immunodeficiency, inflammation and neurodegeneration.
 
-More particularly, we first investigate the biochemical and molecular features of ligands, to allow their classification into different subtypes of drugs. These are subsequently compared with respect to the corresponding targeted protein classes and disease types. Concurrently, we develop success metrics, derived from publication citations, patents, clinical trials and drug status. We further analyze these metrics over time, offering a more dynamic depiction of success. Ultimately, we aim to causally link the uncovered biological and chemical features to the success metrics, in order to contribute to a more comprehensive landscape of drug discovery.
 
 ## Research Questions
-To guide the research, we propose answering the following questions, focused on developing success metrics derived from citations, patents, prescriptions, and clinical trials to complement BindingDB.
+To guide the research above, we answer three distinct research questions, all focused on success metrics derived from citations, patents, prescriptions, and clinical trials. Sub-questions help in formulating answers to this research.
 
-#### **Molecular Features and Drug Success**:
+#### **What are the relationships between targeted diseases and success in drug discovery?**
+- What diseases are most influential? Which have the largest success?
+- How do these metrics change over time?
+  
+#### **What are the relationships between targeted protein classes and success in drug discovery?**
+- Are specific target protein linked to better success metrics?
+- How are certain protein classes linked to disease classes identified as highly influential?
+  
+#### **What molecular features determine success in drug discovery?**
 - Do specific biochemical features of ligands (binding kinetics, structures …) predict their success metrics?
 - Do certain properties like molecular weight, hydrophobicity, or binding affinity have a strong predictive relationship with success metrics?
-- Is there a difference in success between competitive and non-competitive ligands?
-- Do biochemical rules of thumb (eg. Lipinski’s rule) correlate with the derived success metrics?
+- How does institutional influence affect the research for new drug structures?
+- What is the research strategy linked to developing new succesful structures?
 
-#### **Hypothesis on Protein Class Success**:
-- Do certain protein classes have a causal link to better success rates?
-- In relation to disease specific outcomes, how and why are certain protein classes (e.g. GPCRs or kinases) preferentially targeted ? What class-specific molecular features might be favoured?
-
-#### **Disease-Specific Outcomes**:
-- Is there a causal relationship between the targeted diseases and success indicators?
-
-#### **Temporal Trends of Success Metrics**:
-- Do the success metrics change over time? What external factors may influence these?
-- Do periods of intensified research activity, in certain protein classes or diseases, lead to higher success rates?
-####  **Institutional Influence on Drug Discovery Outcomes**:
-- Does the geographical location and institutional affiliation of research groups have a causal impact on the success rate of drug candidates?
 
 ## Datasets
 - [BindingDB](https://www.bindingdb.org/rwd/bind/index.jsp)
@@ -50,8 +46,7 @@ To guide the research, we propose answering the following questions, focused on 
     - Accessed with the [crossref API](https://api.crossref.org/swagger-ui/index.html) to access publication metadata, based on a DOI (year of publication, journal, publisher, number of citations, authors, …)
 ## Methods
 ### Metrics
-A key pillar of this project is defining success metrics and understanding their limitations. Here, we outline current and planned metrics.
-#### **Current metrics**:
+Key results of this study are based on success metrics, each with their limitations. Here, we outline these metrics.
 - Number of publications related to a ligand
 - Number of citations of initial publication of a ligand
     - Indicates the relevance of research on different target-ligand interactions
@@ -64,43 +59,43 @@ A key pillar of this project is defining success metrics and understanding their
     - Does not account for the quality or success rate of the trial.
 - Number of prescriptions of the drug.
     - We only use data provided by medicaid about drug utilisation in the US, creating bias.
-
-#### **Future metrics to be explored**:
-- Patents
+- Number of patent publications
+- Number of citations linked to a patent
     - Indicates the importance of drugs developed outside of academia
     - Limited by external confounding factors, such as institution’s influence and visibility
-- Binding affinities and kinetics (eg. IC50 and Ki)
-    - Indicates biochemical success, based on previous biological and chemical knowledge of optimal binding kinetics for particular classes of drugs
+- Binding affinities and kinetics (notably IC50)
+    - Indicates biochemical success, based on biological of optimal binding kinetics for particular classes of drugs
+    - IC50 is the most widely used measure of a drug's efficacy, indicating the concentration of a drug needed to inhibit a process by half.
     - Limited to certain classes and by current state of biochemical knowledge
 
 ### Analysis
-- Step 1: Data exploration
-- Step 2: Data enrichment
-	- 2.1: Uniprot data retrieval on diseases.
-	- 2.2: Crossref API data retrieval on years and citations.
-	- 2.3: DrugBank data retrieval on ligands.
-    - 2.4: Medicaid and NDC Directory data retrieval on prescriptions.
-	- 2.5: Zinc data retrieval on clinical trials.
-	- 2.6: Google patents data retrieval on patents.
-    - 2.7: Regression models to impute missing data, especially for binding kinetics.
-- Step 3: Analysis and addressing research questions
-    - 3.1: Develop success metrics as described above and review literature to determine optimal binding kinetics per disease class of interest.
-    - 3.2: Analyse biochemical features, by clustering high-dimensional molecular data through dimensionality reduction techniques.
-    - 3.3: Investigate success metrics’ relationships with biological and chemical features. We propose regression analysis with propensity score matching to control confounders. Success metrics, influenced by external factors, will be modelled as dependent variables, with protein class, ligand features, disease class, and binding kinetics as independent variables to establish causality.
-    - 3.4: Access to publication dates enables time series analysis, revealing the dynamics of ligand research.
+#### Data exploration
+We first explore the data and determine which methods of analysis, data transformations, and cleaning is necessary. Thereafter, we prepare the main data for all subsequemt analyses.
 
-- Step 4: Create the data story webpage.
+#### Data enrichment
+We enrich the main BindingDB dataset, by retrieving the data presented above.
+- Uniprot data retrieval on diseases
+- Crossref API data retrieval on years and citations
+- DrugBank data retrieval on ligands
+- Zinc data retrieval on clinical trials
+- Google patents data retrieval on patents
+
+#### Methods for addressing research questions
+We first develop the success metrics presented above, and review biochemical litereature per disease class of interest. Thereafter, we apply the metrics and rank both disease classes and target protein. We thereafter investigate these rankings and interpret the findings, also influenced by change over time, obtained through the publication date of each publication. In particular, this allows to identify two target proteins of interest (RET and D2R), due to their large implications in important diseases. These targets are then used as case studies for molecular feature analyses.
+
+To analyse molecular features, we embed the molecular structures given by the SMILES data in 2048 bit vectors. These fingerprints capture structural information about a molecule, such as the presence of particular atoms, bonds, and functional groups. Thereafter, we group similar structures by reducing the dimensionality of data by principal component analysis (PCA). The obtained data points are grouped by K-means clustering, to identify families of ligands per target. Thereafter, we overlay the previously developed metrics, such as publication and patent citations, clinical trials and ligand efficacy, and identify how these clusters change over time.
+
+Finally, we extract molecular features and structural elements (number of bonds, rings, partial charges, etc.) using [RDKit](https://www.rdkit.org/docs/index.html). Using IC50 as a measure of efficacy, we implement two classification models (multinomial logistic regression and random forests) to identify the predictive power and importance of the different chemical features.
+
 
 ## Timeline and Team Organisation
-
-![Dessin sans titre (1)](https://github.com/user-attachments/assets/66bc1b11-d585-4c36-a902-7099d5d8df7f)
-
-
-- White: All
-- Blue: Amélie and Wesley
+<img width="1073" alt="timeline" src="https://github.com/user-attachments/assets/5e54a7d1-ade2-4202-ac67-712335d4c61b" />
+- Blue: Amélie
+- Purple: Guillaume
 - Green: Guillaume and Gregor
-- Purple: Daphné and Gregor
-- Orange: Wesley
+- Orange: Wesley and Amélie
+- White: Wesley and Daphné
+- Grey: Gregor
 
 ## Conda Environment Setup
 
