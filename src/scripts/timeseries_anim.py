@@ -8,8 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from src.scripts import smiles
 from src.utils.utils import group_categories
 
-
-def filter_RET(
+def filter_uniprotID(
     smiles_df: pd.DataFrame, uniprot_ids: list[str] = ["P07949"]
 ) -> pd.DataFrame:
     return smiles_df[
