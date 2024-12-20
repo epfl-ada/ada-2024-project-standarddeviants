@@ -160,8 +160,8 @@
         <h1 class="display-4 fw-bold text-body-emphasis text-center pb-3">Data Presentation</h1>
         <div class="col">
           <p class="fs-5">
-            Before presenting our answers to all these questions, it is important we become familiar with the data we are using.<br/>
-            It is crucial for all our analyses to know how it is distributed. On top of indicating what analyses should be carried out and how, this even already gives us a first idea of what the world of drug discovery looks like, and what usual binding kinetics look like.
+            Before presenting our answers to all these questions, it is important we become familiar with the data we are using, and how it is distributed.<br/>
+            On top of indicating what analyses should be carried out, this already gives us a first idea of what the world of drug discovery looks like, and what usual binding kinetics are.
           </p>
           <p class="fs-5">
             This figure shows the distribution of each metric. In particular, we first appreciate that most measurements are made at physiological pH and body temperature. Measures made outside these ranges are expected to be in extreme conditions or very different model organisms. In addition, we observe that all binding kinetics (aside pH and temperature) are adequately distributed on a log-scale. Two particularly important metrics in pharmacology (notably shown by their large frequency in the data), Ki and IC50, show mean values of 10^2 nM and 10^2.5 nM respectively. In particular, IC50 is the most widely used measure of a drug's efficacy, indicating the concentration of a drug needed to inhibit a process by half. These values, however, are suspected to be highly influenced by the targets, diseases, and molecular features of interest, all of which will be thoroughly analysed.
@@ -199,7 +199,7 @@
           <div class="col-lg-9 pt-5">
 
             <p class="fs-5 pt-5">
-              Being up to date with the main data, we can finally discuss the first pillar of success in drug discovery: the targeted disease. Indeed, some disease classes are intuitively more researched than others:
+              Some disease classes are intuitively more researched than others:
             </p>
 
             <div class="ratio ratio-16x9">
@@ -212,8 +212,8 @@
             </div>
 
             <p class="fs-5">
-              Unsurprisingly, cancer is the most studied disease area in drug discovery, and is stable over time. Interestingly, we also see, when focusing on AIDS only, that had a major focus in the 1980s, coinciding with its pandemic. Other examples include immunodeficiency diseases, for which research is steadily rising since the beginning of the century.<br/>
-              Still, it remains unclear how this distribution is related to actual success in drug discovery. We therefore introduce the first metrics of success: article and patent counts and citations.
+              Unsurprisingly, cancer is the most studied disease area in drug discovery, and is stable over time. Interestingly, we also see, when focusing solely on AIDS, that this disease had a major research focus in the 1980s, coinciding with its pandemic. Other examples include immunodeficiency diseases, for which research is steadily rising since the beginning of the century.<br/>
+              Still, it remains unclear how this distribution is related to actual success in drug discovery. We therefore introduce the first metrics of success: publication and patent citations.
 
             </p>
 
@@ -223,17 +223,18 @@
             <div id="Articles and Patents" class="row">
               <h2 class="text-body-emphasis pt-5">Articles and Patents</h2>
               <p class="fs-5">
-                To gain a more comprehensive understanding of how research focuses on various disease classes, article counts and citation trends are highly relevant as first indicators of interest, influence and importance.
+                To gain a more comprehensive understanding of how research focuses on various disease classes, research article counts and citation trends are highly relevant as first indicators of interest, influence and importance.
 
               </p>
               <p class="fs-5">
-                In addition, to get a sense of the overall importance of a disease class, we introduce a new metric of success, the H-index. The H-index (where H is the number of publications that have above H citations) is a measure of impact, taking into account both the number of publications in a category, as well as how much these are cited. A main advantage of this index is its insensitivity to outlying data. In particular, it is only slightly affected by individual papers which may have obtained great praise, and rather indicates a consistent success.
+                In addition, to get a sense of the overall importance of a disease class, we introduce a new metric of success, the H-index. The H-index (where H is the number of publications that have above H citations) is a measure of impact, taking into account both the number of publications in a category, as well as how much these are cited. <br/>
+                A main advantage of this index is its insensitivity to outlying data. In particular, it is only slightly affected by individual papers which may have obtained great praise, but rather indicates a consistent success.
 
               </p>
 
               <div class="col-lg-4">
                 <p class="fs-5">
-                  Here, we observe with no great surprise that research on cancer has the most published articles as well as citations. Secondly, neurodegeneration sees many published and cited articles, closely followed by dysplasia. Interestingly, dysplasia may sometimes become cancer with time. Thus, the largest studied diseases seem to be the main diseases affecting our aging society: cancer and neurodegeneration. Others include cardiac issues (QT syndrom), immune problems and inflammation, obesity and diabetes, and other neurological problems such as epilepsy. Interestingly, when looking at the H-index only, cardiac issues seem less impactful, while neurological issues such as epilepsy gain in importance. But from these studied diseases, what actually reaches the pharmaceutical industry?
+                  Here, we observe with no great surprise that research on cancer has the most published articles as well as citations. Secondly, neurodegeneration sees many published and cited articles, closely followed by dysplasia. Interestingly, dysplasia may become a cancer with time. Thus, the largest studied diseases seem to be the main ones affecting our aging society: cancer and neurodegeneration. Others include cardiac issues (QT syndrome), immune problems and inflammation, obesity and diabetes, and other neurological problems such as epilepsy. Interestingly, when looking at the H-index only, cardiac issues seem less impactful, while neurological issues such as epilepsy gain in importance. But from these studied diseases, what actually reaches the pharmaceutical industry?
                 </p>
 
               </div>
@@ -276,7 +277,7 @@
               </div>
               <div class="col-lg-4">
                 <p class="fs-5">
-                  By looking at patents instead of articles, we observe that cancer has both the highest number of patents and patent citations of all disease classes. Interestingly though, even though it is still the fourth patented disease class, neurodegeneration does not seem to be as important in industry as in academia. Instead, we see a rise in the importance of immunodeficiency, inflammatory-regulating and blood disease drugs, especially notable when classified by H-index.
+                  By looking at patents instead of articles, we observe that cancer has both the highest number of patents and patent citations of all disease classes. Even though it is still the fourth patented disease class, neurodegeneration does not seem to be as important in industry as in academia. Instead, we see a rise in the importance of immunodeficiency, inflammatory-regulating and blood disease drugs, especially notable when classified by H-index.
                 </p>
 
 
@@ -307,7 +308,8 @@
               </div>
 
               <p class="fs-5">
-                Most notably, completed compared to all clinical trials show a rapid decrease in numbers as of 2008-2009. A direct conclusion, irrespective of diseases, is that clinical trials take much time to complete, around 5 years, if not more. The clinical phase of drug discovery therefore represents a major hurdle in this process.
+                The clinical trials data once again stresses that cancer is the most prominent disease class.<br/>
+                Completed trials compared to all clinical trials show a rapid decrease in numbers as of 2008-2009. A direct conclusion, irrespective of diseases, is that clinical trials take much time to complete, around 5 years, if not more. The clinical phase of drug discovery therefore represents a major hurdle in this process.
               </p>
 
             </div>
@@ -317,7 +319,7 @@
               <h2 class="text-body-emphasis pt-5">Disease-Level Conclusions</h2>
 
               <p class="fs-5">
-                In drug discovery, the disease studied seems to heavily affect the reach and impact of the associated research. Influenced by our aging population, we observe an especially high interest in research in cancer, neurodegeneration and neurological conditions, inflammatory and autoimmune diseases, as well as cardiac and blood-related diseases.<br/>
+                In drug discovery, the disease studied seems to heavily affect the reach and impact of the associated research. Influenced by our aging population, we observe an especially high interest in cancer, neurodegeneration and neurological conditions, inflammatory and autoimmune diseases, as well as cardiac and blood-related diseases.<br/>
                 With this in mind, feel free to go back and interact with the data, exploring particular diseases of interest!
               </p>
 
@@ -388,14 +390,16 @@
                 </div>
                 <div class="col-lg-4">
                   <p class="fs-5">
-                    Here, we observe that the three most influential protein classes to target in drug discovery are neurotransmitter receptors, hormone receptors and growth factor receptors. When looking at overall impact measured by the H-index, growth factors become slightly more influential than hormone receptors, but this general trend remains. Linking back to what was found to be the most influential diseases, it is no surprise these targets appear, as nearly all top 10 targets as measured by citation count, article count and H-index are related to neurological diseases or cancer. Interestingly though, we observe that research on cancer is spread on many more classes of proteins (growth factor receptors, CDKs, protein kinases, RTKs, etc.), while neurological conditions focus either on neurotransmitter receptors or transporters.
+                    Here, we observe that the three most influential protein classes to target in drug discovery are neurotransmitter receptors, hormone receptors and growth factor receptors. When looking at overall impact measured by the H-index, growth factors become slightly more influential than hormone receptors, but this general trend remains. <br/><br/>
+                    Linking back to what was found to be the most influential diseases, it is no surprise these targets appear, as nearly all top 10 targets as measured by citation count, article count and H-index are related to neurological diseases or cancer. Interestingly though, we observe that research on cancer is spread on many more classes of proteins (growth factor receptors, CDKs, protein kinases, RTKs, etc.), while neurological conditions focus either on neurotransmitter receptors or transporters.
 
                   </p>
 
                 </div>
                 <div class="col-lg-4">
                   <p class="fs-5">
-                    When looking at industry influence through patents, neurotransmitter receptors and transporters don’t seem to have as much influence as in academia, in line with our observations related to diseases. Instead, non-receptor tyrosine kinases are the most patented and influential targets in drug discovery. However, this might position neurotransmitters as the most promising, emerging protein class to study. Indeed, its strong position in academia hints towards a very solid foundation of knowledge, which simply has not yet reached patentable results, compared to the historically established targets in research on cancer. With the same argument, we equally identify hormone receptors, which have a high academic H-index, while having a low industry H-index, as promising targets in drug discovery.
+                    When looking at industry influence through patents, neurotransmitter receptors and transporters don’t seem to have as much influence as in academia, in line with our observations related to diseases. Instead, non-receptor tyrosine kinases are the most patented and influential targets in drug discovery. However, this might position neurotransmitters as the most promising, emerging protein class to study.<br/><br/>
+                    Indeed, its strong position in academia hints towards a very solid foundation of knowledge, which simply has not yet reached patentable results, compared to the historically established targets in research on cancer. With the same argument, we equally identify hormone receptors, which have a high academic H-index, while having a low industry H-index, as promising targets in drug discovery.
 
                   </p>
 
@@ -509,6 +513,7 @@
 
                   </div>
                   <p class="text-center fw-bold">RET</p>
+                  <p class="text-center fw-light">(Best viewed in Chrome)</p>
                 </div>
 
                 <div class="col">
@@ -516,13 +521,14 @@
                     <iframe src="frontend/figures/3D_molecules/7jvr_D2.html"></iframe>
                   </div>
                   <p class="text-center fw-bold">D2R</p>
+                  <p class="text-center fw-light">(Best viewed in Chrome)</p>
                 </div>
               </div>
 
 
 
               <p class="fs-5">
-                Given the large influence in drug discovery of cancer and neurodegeneration previously analysed, and the highly influential target classes of tyrosine kinases and neurotransmitter receptors, we specifically analyse the molecular features of RET, a proto-oncogene tyrosine kinase, and the dopamine receptor D2 (D2R), and their implications in research success. To do so, we first look at how these structures develop over time.
+                Given the large influence in drug discovery of cancer and neurodegeneration previously analysed, and the highly influential target classes of tyrosine kinases and neurotransmitter receptors, we specifically analyse the molecular features of RET, a proto-oncogene tyrosine kinase, the dopamine receptor D2 (D2R), and their implications in research success. To do so, we first look at how these structures develop over time.
               </p>
 
             </div>
@@ -564,7 +570,7 @@
               </p>
 
               <div class="ratio" style="--bs-aspect-ratio: 40%;">
-                <a name="RET_PCA_3D_logIC50_anim"></a>
+                <a name="RET_2D_PCA_overlays"></a>
                 <iframe class="plotly-iframe" src="frontend/figures/data_story/RET_2D_PCA_overlays.html"></iframe>
               </div>
               <div class="ratio" style="--bs-aspect-ratio: 40%;">
@@ -628,6 +634,8 @@
                     <iframe class="plotly-iframe" src="frontend/figures/3D_molecules/RET_ligand_cluster_2.html"></iframe>
                   </div>
                   <p class="text-center fw-bold">Cluster 2</p>
+                  <p class="text-center fw-light">(Best in Chrome)</p>
+
                 </div>
                 <div class="col">
                   <div class="ratio" style="--bs-aspect-ratio: 100%;">
